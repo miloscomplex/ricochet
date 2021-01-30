@@ -31,7 +31,7 @@ backend/.bundle
 /backend/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/backend/config/master.key
+/config/master.key
 
 /backend/public/packs
 /backend/public/packs-test
