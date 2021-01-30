@@ -1,0 +1,6 @@
+# aws:
+#   access_key_id: 123
+#   secret_access_key: 345
+
+# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+secret_key_base: ee532d231b3e87b30f3fd7b834ff9f24c64547d9027f6e624c0ffba11098b01c4b5d9a5f980eae22ca7546ab39ec168254ddb8611991a7b0ab234ae6d2f8d8dc
