@@ -8,36 +8,36 @@
 backend/.bundle
 
 # Ignore the default SQLite database.
-/backend/db/*.sqlite3
-/backend/db/*.sqlite3-journal
-/backend/db/*.sqlite3-*
+backend/db/*.sqlite3
+backend/db/*.sqlite3-journal
+backend/db/*.sqlite3-*
 
 # Ignore all logfiles and tempfiles.
-/backend/log/*
-/backend/tmp/*
-/backend/!/log/.keep
-/backend/!/tmp/.keep
+backend/log/*
+backend/tmp/*
+backend/!/log/.keep
+backend/!/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/backend/tmp/pids/*
-/backend/!/tmp/pids/
-/backend/!/tmp/pids/.keep
+backend/tmp/pids/*
+backend/!/tmp/pids/
+backend/!/tmp/pids/.keep
 
 # Ignore uploaded files in development.
-/backend/storage/*
-/backend/!/storage/.keep
+backend/storage/*
+backend/!/storage/.keep
 
-/backend/public/assets
-/backend/.byebug_history
+backend/public/assets
+backend/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+backend/config/master.key
 
-/backend/public/packs
-/backend/public/packs-test
-/backend/node_modules
-/backend/yarn-error.log
-/backendyarn-debug.log*
-/backend.yarn-integrity
+backend/public/packs
+backend/public/packs-test
+backend/node_modules
+backend/yarn-error.log
+backendyarn-debug.log*
+backend.yarn-integrity
 # Environment variables
-/backend/.env
+backend/.env
