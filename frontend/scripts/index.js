@@ -1,2 +1,2 @@
 let newGame = new GamePlay()
-newGame.interval()
+setInterval(newGame.drawBall, 10)
