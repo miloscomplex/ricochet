@@ -10,3 +10,9 @@ body {
   width: 80%;
   margin: 2.5em auto 2em auto;
 }
+
+canvas {
+  width: 480px;
+  height: 320px;
+  background-color: #000;
+}
