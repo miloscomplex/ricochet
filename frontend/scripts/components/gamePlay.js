@@ -6,6 +6,8 @@ class GamePlay {
       this.force = new Vector(4,1)
       this.gameBall = new Ball(this.x ,this.y ,this.ballRadius, 6, 4)
       this.gameBall2 = new Ball(this.x ,this.y ,this.ballRadius, 8, 1)
+      this.gravity = new Vector(0, 0.4)
+      this.wind = new Vector(0.2, 0)
     }
 
   // ball = function() {
@@ -18,18 +20,16 @@ class GamePlay {
 
   drawBall = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    let gravity = new Vector(0, 0.2)
 
-    //this.gameBall.ball()
+    // draw ball
     this.gameBall.ball()
-    this.gameBall2.ball()
-    // this.ball()
 
-    // this.gameBall.update()
-    // this.gameBall.checkEdges()
-    // this.gameBall.ball()
+    // update position
     this.gameBall.updatePosition()
-    this.gameBall2.updatePosition()
+    this.gameBall2.applyForce(this.gravity)
+    this.gameBall2.applyForce(this.wind)
+    this.gameBall2.update()
+    this.gameBall2.checkEdges()
     // if (this.x + this.force.x > canvas.width - this.ballRadius || this.x + this.force.x < this.ballRadius) {
     //   this.force.x = -this.force.x
     // }
@@ -38,6 +38,7 @@ class GamePlay {
     // }
     // this.x += this.force.x
     // this.y += this.force.y
+    this.gameBall2.ball()
   }
 
   draw = () => {

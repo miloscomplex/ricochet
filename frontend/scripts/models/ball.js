@@ -15,15 +15,17 @@ class Ball {
     ctx.closePath()
   }
 
-  // applyForce = function(force2) {
-  //   this.acceleration.add(force2)
-  // }
+  applyForce = function(force) {
+    this.acceleration.add(force)
+  }
 
-  // update = function() {
-  //   this.velocity.add(this.acceleration)
-  //   this.position.add(this.velocity)
-  //   this.acceleration.setter(0,0)
-  // }
+  update = function() {
+    //console.log(this.position);
+    this.velocity.add(this.acceleration)
+    this.position.add(this.velocity)
+    this.acceleration.setter(0,0)
+    // Eulor time steps so needs to be reset
+  }
 
   updatePosition = function() {
     if (this.position.x + this.force.x > canvas.width - this.ballRadius || this.position.x + this.force.x < this.ballRadius) {
@@ -36,18 +38,17 @@ class Ball {
     this.position.y += this.force.y
   }
 
-  // checkEdges = function() {
-  //   if (this.position.x >= canvas.width - this.ballRadius) {
-  //     this.position.x = width - this.r
-  //     this.velocity.x *= -1
-  //   } else if (this.position.x <= this.ballRadius) {
-  //     this.position.x = this.ballRadius
-  //     this.velocity.x *= -1
-  //   }
-  //   if (this.position.y >= canvas.height - this.ballRadius || this.position.y <= this.ballRadius ) {
-  //     this.position.y = canvas.height - this.r
-  //     this.velocity.y *= -1
-  //   }
-  //   this.position.x += this.velocity.x
-  // }
+  checkEdges = function() {
+    if (this.position.x >= canvas.width - this.ballRadius) {
+      this.position.x = canvas.width - this.ballRadius
+      this.velocity.x *= -1
+    } else if (this.position.x <= this.ballRadius) {
+      this.position.x = this.ballRadius
+      this.velocity.x *= -1
+    }
+    if (this.position.y >= canvas.height - this.ballRadius || this.position.y <= this.ballRadius ) {
+      this.position.y = canvas.height - this.ballRadius
+      this.velocity.y *= -1
+    }
+  }
 }

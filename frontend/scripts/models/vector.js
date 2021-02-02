@@ -4,12 +4,16 @@ class Vector {
     this.y = y
   }
 
-  add(otherVec) {
-    return new Vector(this.x + otherVec.x, this.y + otherVec.y)
+  add (otherVec) {
+    this.x = this.x + otherVec.x
+    this.y = this.y + otherVec.y
+    return (this.x, this.y)
   }
 
   subtract(otherVec) {
-    return new Vector(this.x - otherVec.x, this.y - otherVec.y)
+    this.x = this.x - otherVec.x
+    this.y = this.y - otherVec.y
+    return (this.x, this.y)
   }
 
   get length() {
