@@ -1,29 +1,29 @@
 class GamePlay {
     constructor() {
-      this.canvas = document.getElementById('myCanvas')
-      this.ctx = this.canvas.getContext('2d')
-      this.x = this.canvas.width / 2
-      this.y = this.canvas.height - 30
-      this.ballRadius = 10
-      this.force = new Vector(8,2)
+      this.x = canvas.width / 2
+      this.y = canvas.height - 30
+      this.ballRadius = 8
+      this.force = new Vector(4,1)
       this.gameBall = new Ball(this.x,this.y,this.ballRadius)
     }
 
   ball = function() {
-    this.ctx.beginPath()
-    this.ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI*2)
-    this.ctx.fillStyle = '#0095DD'
-    this.ctx.fill()
-    this.ctx.closePath()
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI*2)
+    ctx.fillStyle = '#0095DD'
+    ctx.fill()
+    ctx.closePath()
   }
 
   drawBall = () => {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    this.gameBall.ball()
     this.ball()
-    if (this.x + this.force.x > this.canvas.width - this.ballRadius || this.x + this.force.x < this.ballRadius) {
+    this.gameBall.updatePosition()
+    if (this.x + this.force.x > canvas.width - this.ballRadius || this.x + this.force.x < this.ballRadius) {
       this.force.x = -this.force.x
     }
-    if (this.y + this.force.y > this.canvas.height - this.ballRadius || this.y + this.force.y < this.ballRadius ) {
+    if (this.y + this.force.y > canvas.height - this.ballRadius || this.y + this.force.y < this.ballRadius ) {
       this.force.y = -this.force.y
     }
     this.x += this.force.x
@@ -31,7 +31,6 @@ class GamePlay {
   }
 
   draw = () => {
-    // console.log('this= ' + this)
     this.drawBall()
   }
 

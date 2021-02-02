@@ -1,0 +1,13 @@
+### MVP
+- [ ] Game begins when the user loads the website
+- [ ] Platforms can be attached inside the game area by mouse clicks
+- [ ] Platforms are limited by a predetermined number
+- [ ] Platforms are a static dimension
+- [ ] Platforms are trampoline like and propel the ball in the opposite (y position) direction when the ball collides
+- [ ] Users are timed
+- [ ]  The ball enters from the left of the screen and has physical properties to it ( gravity & velocity & maybe drag )
+- [ ] The game is won once the user gets the ball into the cup/basket
+- [ ] Display an alert if the game is won
+- [ ] There is a basic color scheme to the components of the game
+- [ ] The ball will leave the game area on the bottom if not platforms are placed to inhibit it’s departure
+- [ ] The game is never lost it just continues to move the ball back to the starting point after leaving the game area
