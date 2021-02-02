@@ -12,7 +12,5 @@ body {
 }
 
 canvas {
-  width: 480px;
-  height: 320px;
   background-color: #000;
 }
