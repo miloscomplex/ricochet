@@ -16,4 +16,11 @@ class Vector {
     return Math.sqrt(this.x * this.x + this.y * this.y)
   }
 
+  setter(x,y) {
+    this.x = x
+    this.y = y
+  }
+
+
+
 }
