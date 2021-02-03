@@ -1,4 +1,5 @@
 class GamePlay {
+
     constructor() {
       this.x = 10 //canvas.width / 2
       this.y = canvas.height / 2
@@ -10,12 +11,14 @@ class GamePlay {
       this.wind = new Vector(0.2, 0)
       this.platform = new Platform(canvas.width / 2, canvas.height / 2, 80, 20)
       this.platform2 = new Platform(canvas.width / 4, canvas.height / 2, 80, 20)
-
+      canvas.addEventListener("click", this.logMousePos)
+      this.platforms = new Array()
+      console.log(this.platforms);
     }
 
   drawCanvas = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
+    //ctx.clearRect(0, 0, canvas.width, canvas.height)
+    this.platforms.forEach( platform => platform.drawPlatform())
     this.platform.drawPlatform()
     this.platform2.drawPlatform()
     // update position
@@ -32,6 +35,13 @@ class GamePlay {
 
   draw = () => {
     this.drawCanvas()
+  }
+
+  logMousePos = function(e) {
+    let platform = new Platform(e.offsetX, e.offsetY, 80, 20)
+    console.log(platform);
+    console.log(this.platforms)
+    //this.platforms.push(platform)
   }
 
   // Why is this throw an error of not a function
