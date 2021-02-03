@@ -15,12 +15,16 @@ class GamePlay {
       this.engine = Engine.create()
       this.world = this.engine.world
       this.options = {
-        isStatic: true 
+        isStatic: true
       }
+      this.ground = Bodies.rectangle(canvas.width / 2, canvas.height, canvas.width, 10, this.options)
+
+      World.add(this.world, this.ground)
     }
 
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    Engine.update(this.engine)
     this.platforms.forEach( platform => platform.drawPlatform())
 
     // update position

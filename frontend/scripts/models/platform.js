@@ -13,7 +13,7 @@ class Platform {
 
   drawPlatform = function() {
     let pos = this.body.position
-    console.log(pos);
+    //console.log(pos);
     ctx.beginPath()
     ctx.rect(pos.x, pos.y, this.width, this.height)
     ctx.fillStyle = '#4caf50'
