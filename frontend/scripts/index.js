@@ -4,4 +4,8 @@ const ctx = canvas.getContext('2d')
 
 // Initiate new game
 let newGame = new GamePlay()
-setInterval(newGame.draw, 10)
+const interval = setInterval(newGame.draw, 10)
+
+function stopInterval() {
+  clearInterval(interval)
+}
