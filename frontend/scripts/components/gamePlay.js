@@ -11,8 +11,9 @@ class GamePlay {
       this.wind = new Vector(0.2, 0)
       this.platform = new Platform(canvas.width / 2, canvas.height / 2, 80, 20)
       this.platform2 = new Platform(canvas.width / 4, canvas.height / 2, 80, 20)
-      canvas.addEventListener("click", this.logMousePos)
       this.platforms = new Array()
+      // lexical scoping needs the argument passed
+      canvas.addEventListener("click", event => this.logMousePos(event, this.platforms))
       console.log(this.platforms);
     }
 
@@ -37,10 +38,11 @@ class GamePlay {
     this.drawCanvas()
   }
 
-  logMousePos = function(e) {
-    let platform = new Platform(e.offsetX, e.offsetY, 80, 20)
-    console.log(platform);
-    console.log(this.platforms)
+  logMousePos = function(e, array) {
+    array.push(new Platform(e.offsetX, e.offsetY, 80, 20))
+    //let newPlatform = new Platform(e.offsetX, e.offsetY, 80, 20)
+    //console.log(newPlatform);
+    console.log(array)
     //this.platforms.push(platform)
   }
 
