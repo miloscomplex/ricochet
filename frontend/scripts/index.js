@@ -9,3 +9,5 @@ const interval = setInterval(newGame.draw, 10)
 function stopInterval() {
   clearInterval(interval)
 }
+
+setTimeout( stopInterval, 20000)
