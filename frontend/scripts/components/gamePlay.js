@@ -5,44 +5,33 @@ class GamePlay {
       this.ballRadius = 6
       this.force = new Vector(4,1)
       this.gameBall = new Ball(this.x ,this.y ,this.ballRadius, 6, 4)
-      this.gameBall2 = new Ball(this.x ,this.y ,this.ballRadius, 8, 1)
+      this.gameBall2 = new Ball(this.x ,30 ,this.ballRadius, 8, 1)
       this.gravity = new Vector(0, 0.4)
       this.wind = new Vector(0.2, 0)
+      this.platform = new Platform(canvas.width / 2, canvas.height / 2, 80, 20)
+      this.platform2 = new Platform(canvas.width / 4, canvas.height / 2, 80, 20)
+
     }
 
-  // ball = function() {
-  //   ctx.beginPath()
-  //   ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI*2)
-  //   ctx.fillStyle = '#0095DD'
-  //   ctx.fill()
-  //   ctx.closePath()
-  // }
-
-  drawBall = () => {
+  drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    // draw ball
-    this.gameBall.ball()
-
+    this.platform.drawPlatform()
+    this.platform2.drawPlatform()
     // update position
     this.gameBall.updatePosition()
     this.gameBall2.applyForce(this.gravity)
     this.gameBall2.applyForce(this.wind)
     this.gameBall2.update()
     this.gameBall2.checkEdges()
-    // if (this.x + this.force.x > canvas.width - this.ballRadius || this.x + this.force.x < this.ballRadius) {
-    //   this.force.x = -this.force.x
-    // }
-    // if (this.y + this.force.y > canvas.height - this.ballRadius || this.y + this.force.y < this.ballRadius ) {
-    //   this.force.y = -this.force.y
-    // }
-    // this.x += this.force.x
-    // this.y += this.force.y
-    this.gameBall2.ball()
+
+    // drawBall
+    this.gameBall2.drawBall()
+    this.gameBall.drawBall()
   }
 
   draw = () => {
-    this.drawBall()
+    this.drawCanvas()
   }
 
   // Why is this throw an error of not a function

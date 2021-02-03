@@ -7,7 +7,7 @@ class Ball {
     this.force = new Vector(vecX, vecY)
   }
 
-  ball = function() {
+  drawBall = function() {
     ctx.beginPath()
     ctx.arc(this.position.x, this.position.y, this.ballRadius, 0, Math.PI*2)
     ctx.fillStyle = '#0095DD'
@@ -16,11 +16,11 @@ class Ball {
   }
 
   applyForce = function(force) {
+    // F = M * A || A = F / M ( setting M = 1 )
     this.acceleration.add(force)
   }
 
   update = function() {
-    //console.log(this.position);
     this.velocity.add(this.acceleration)
     this.position.add(this.velocity)
     this.acceleration.setter(0,0)
