@@ -1,6 +1,6 @@
 ### MVP
-- [ ] Game begins when the user loads the website
-- [ ] Platforms can be attached inside the game area by mouse clicks
+- [x] Game begins when the user loads the website
+- [x] Platforms can be attached inside the game area by mouse clicks
 - [ ] Platforms are limited by a predetermined number
 - [ ] Platforms are a static dimension
 - [ ] Platforms are trampoline like and propel the ball in the opposite (y position) direction when the ball collides

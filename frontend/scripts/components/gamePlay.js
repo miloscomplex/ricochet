@@ -9,12 +9,14 @@ class GamePlay {
       this.gameBall2 = new Ball(this.x ,30 ,this.ballRadius, 8, 1)
       this.gravity = new Vector(0, 0.4)
       this.wind = new Vector(0.2, 0)
-      //this.platform = new Platform(canvas.width / 2, canvas.height / 2, 50, 8)
-      //this.platform2 = new Platform(canvas.width / 4, canvas.height / 2, 40, 8)
       this.platforms = new Array()
       // lexical scoping needs the argument passed
       canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
-      console.log(this.platforms);
+      this.engine = Engine.create()
+      this.world = this.engine.world
+      this.options = {
+        isStatic: true 
+      }
     }
 
   drawCanvas = () => {
