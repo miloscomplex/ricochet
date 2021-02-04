@@ -30,4 +30,13 @@ class Ball {
     ctx.closePath()
   }
 
+  isOffScreen = function() {
+    let pos = this.body.position
+    return (pos.y > canvas.height + 80)
+  }
+
+  removeFromWorld = function() {
+    World.remove(world, this.body)
+  }
+
 }

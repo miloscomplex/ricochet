@@ -16,15 +16,14 @@ class GamePlay {
       // lexical scoping needs the argument passed
       canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
       //Engine.run(this.engine)
-      this.bounds = Matter.Bounds.create()
+      //this.bounds = Matter.Bounds.create()
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
-      this.gameBall2 = new Ball(this.x ,30 ,this.ballRadius, 8, 1)
+      //this.gameBall2 = new Ball(this.x ,30 ,this.ballRadius, 8, 1)
 
-      this.ground = Bodies.rectangle(canvas.width / 2, canvas.height + 40, canvas.width, 80, this.options)
-
-      this.right = Bodies.rectangle(canvas.width + 40, canvas.height / 2, 80, canvas.height, this.options)
-      this.top = Bodies.rectangle(canvas.width / 2, -40,canvas.width, 80, this.options)
-      this.left = Bodies.rectangle(-80, canvas.height / 2, 200, canvas.height +20, this.options)
+      //this.ground = new Rectangle(canvas.width / 2, canvas.height + 40, canvas.width, 80)
+      this.right = new Rectangle(canvas.width + 40, canvas.height / 2, 80, canvas.height + 30)
+      this.top = new Rectangle(canvas.width / 2,  -40, canvas.width + 40, 80)
+      this.left = new Rectangle(-100, canvas.height / 2, 200, canvas.height + 20)
 
       this.cup = Bodies.rectangle(canvas.width - 60, canvas.height / 2, 30, 30, {restitution: 0, isStatic: true})
       this.shape = this.customShape(80, 40)
@@ -32,8 +31,13 @@ class GamePlay {
       this.mCupBtm = Bodies.rectangle(130,140,60,10, this.options )
       this.mCupL = Bodies.rectangle(95,120, 20, 40, this.opitons )
       this.mCupR = Bodies.rectangle(130,120, 20, 40, this.options )
+      //
+      // this.p = new Path2D(CUSTOM_PATH)
+      // ctx.fill(this.p)
+      // this.p.fillStyle = '#555555'
+      // this.p.moveTo(20, 40)
 
-      World.add(world, [this.right, this.ground, this.left, this.top, this.cup, this.shape, this.mCupBtm, this.mCupL, this.mCupR])
+      World.add(world, [this.right, this.left, this.top, this.cup, this.shape, this.mCupBtm, this.mCupL, this.mCupR])
 
       //this.cup = Bodies.fromVertices(10, 10, "51 0 51 44 6 44 6 0 0 0 0 50 57 50 57 0 51 0")
       //World.add(this.world, this.gameBall)
@@ -42,6 +46,8 @@ class GamePlay {
 
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    //let p = new Path2D(CUSTOM_PATH)
+    ctx.fill(this.p)
     // ctx.beginPath()
     // //ctx.rect(100, 100, 30, 60)
     // let cupBtm = ctx.rect(100, 140, 60, 10)
@@ -52,18 +58,31 @@ class GamePlay {
     // ctx.closePath()
     this.basket = this.makeBasket()
 
+    let p = new Path2D(CUSTOM_PATH)
+    ctx.fill(p)
+    p.fillStyle = '#555555'
+    p.moveTo(20, 40)
+
     let pos = this.cup.position
+
     ctx.beginPath()
     ctx.rect(pos.x, pos.y, 30, 30)
     ctx.fillStyle = '#4caf50'
     ctx.fill()
     ctx.closePath()
+
     Engine.update(engine)
     //this.gameBall.drawBall()
     this.platforms.forEach( platform => platform.drawPlatform())
     this.gameBall.drawBall()
-    this.gameBall2.drawBall()
-
+    //this.gameBall2.drawBall()
+    if (this.gameBall.isOffScreen()) {
+      setTimeout(() => {
+      this.gameBall.removeFromWorld()
+      //this.gameBall = null
+      this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
+    }, 2000)
+    }
   }
 
   draw = () => {

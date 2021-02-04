@@ -32,4 +32,4 @@ function stopInterval() {
   clearInterval(interval)
 }
 
-setTimeout( stopInterval, 20000)
+setTimeout( stopInterval, 30000)
