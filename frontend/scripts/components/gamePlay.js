@@ -27,6 +27,7 @@ class GamePlay {
       this.left = Bodies.rectangle(-80, canvas.height / 2, 200, canvas.height +20, this.options)
 
       World.add(world, [this.right, this.ground, this.left, this.top])
+      this.cup = Bodies.fromVertices(10, 10, [51, 0, 51, 44, 6, 44, 6, 0, 0, 0, 0, 50, 57, 50, 57, 0, 51, 0])
       //World.add(this.world, this.gameBall)
       //World.add(this.world, this.gambeBall2)
     }

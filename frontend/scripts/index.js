@@ -8,7 +8,7 @@ const World = Matter.World
 const Bodies = Matter.Bodies
 const engine = Engine.create()
 const world = engine.world
-world.gravity.y = 1
+world.gravity.y = 1.5
 
 // Initiate new game
 let newGame = new GamePlay()
