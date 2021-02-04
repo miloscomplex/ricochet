@@ -8,7 +8,7 @@ class Platform {
       restitution: 0.6
     }
     this.body = Bodies.rectangle(x, y, w, h, this.options)
-    World.add(newGame.world, this.body)
+    World.add(world, this.body)
   }
 
   drawPlatform = function() {

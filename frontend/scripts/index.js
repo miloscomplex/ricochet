@@ -6,6 +6,8 @@ const ctx = canvas.getContext('2d')
 const Engine = Matter.Engine
 const World = Matter.World
 const Bodies = Matter.Bodies
+const engine = Engine.create()
+const world = engine.world
 
 // Initiate new game
 let newGame = new GamePlay()
