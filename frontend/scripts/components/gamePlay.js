@@ -28,11 +28,12 @@ class GamePlay {
 
       this.cup = Bodies.rectangle(canvas.width - 60, canvas.height / 2, 30, 30, {restitution: 0, isStatic: true})
       this.shape = this.customShape(80, 40)
-      this.shape.fillStyle = '#555555'
-      this.shape
-      this.basket = this.makeBasket()
-      console.log(this.basket);
-      World.add(world, [this.right, this.ground, this.left, this.top, this.cup, this.shape])
+
+      this.mCupBtm = Bodies.rectangle(130,140,60,10, this.options )
+      this.mCupL = Bodies.rectangle(95,120, 20, 40, this.opitons )
+      this.mCupR = Bodies.rectangle(130,120, 20, 40, this.options )
+
+      World.add(world, [this.right, this.ground, this.left, this.top, this.cup, this.shape, this.mCupBtm, this.mCupL, this.mCupR])
 
       //this.cup = Bodies.fromVertices(10, 10, "51 0 51 44 6 44 6 0 0 0 0 50 57 50 57 0 51 0")
       //World.add(this.world, this.gameBall)
@@ -49,6 +50,7 @@ class GamePlay {
     // //this.fillStyle = '#555555'
     // ctx.fill()
     // ctx.closePath()
+    this.basket = this.makeBasket()
 
     let pos = this.cup.position
     ctx.beginPath()
