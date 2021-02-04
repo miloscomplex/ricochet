@@ -27,8 +27,12 @@ class GamePlay {
       this.left = Bodies.rectangle(-80, canvas.height / 2, 200, canvas.height +20, this.options)
 
       this.cup = Bodies.rectangle(canvas.width - 60, canvas.height / 2, 30, 30, {restitution: 0, isStatic: true})
-
-      World.add(world, [this.right, this.ground, this.left, this.top, this.cup])
+      this.shape = this.customShape(80, 40)
+      this.shape.fillStyle = '#555555'
+      this.shape
+      this.basket = this.makeBasket()
+      console.log(this.basket);
+      World.add(world, [this.right, this.ground, this.left, this.top, this.cup, this.shape])
 
       //this.cup = Bodies.fromVertices(10, 10, "51 0 51 44 6 44 6 0 0 0 0 50 57 50 57 0 51 0")
       //World.add(this.world, this.gameBall)
@@ -37,6 +41,15 @@ class GamePlay {
 
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    // ctx.beginPath()
+    // //ctx.rect(100, 100, 30, 60)
+    // let cupBtm = ctx.rect(100, 140, 60, 10)
+    // let cupL = ctx.rect(100, 100, 10, 40)
+    // let cupR = ctx.rect(150, 100, 10, 40)
+    // //this.fillStyle = '#555555'
+    // ctx.fill()
+    // ctx.closePath()
+
     let pos = this.cup.position
     ctx.beginPath()
     ctx.rect(pos.x, pos.y, 30, 30)
@@ -48,6 +61,7 @@ class GamePlay {
     this.platforms.forEach( platform => platform.drawPlatform())
     this.gameBall.drawBall()
     this.gameBall2.drawBall()
+
   }
 
   draw = () => {
@@ -63,5 +77,21 @@ class GamePlay {
   //   console.log('this= ' + this)
   //   this.drawBall()
   // }
+
+  makeBasket = () => {
+    ctx.beginPath()
+    //ctx.rect(100, 100, 30, 60)
+    let cupBtm = ctx.rect(100, 140, 60, 10)
+    let cupL = ctx.rect(100, 100, 10, 40)
+    let cupR = ctx.rect(150, 100, 10, 40)
+    //this.fillStyle = '#555555'
+    ctx.fill()
+    ctx.closePath()
+  }
+
+  customShape = function(x, y) {
+    let vertices = Vertices.fromPath(CUSTOM_PATH)
+    return Matter.Bodies.fromVertices(x, y, vertices)
+  }
 
 }
