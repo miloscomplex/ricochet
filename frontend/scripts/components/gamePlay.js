@@ -4,9 +4,9 @@ class GamePlay {
       this.x = canvas.width / 2
       this.y = canvas.height / 2
       this.ballRadius = 6
-      this.force = new Vector(4,1)
-      this.gravity = new Vector(0, 0.4)
-      this.wind = new Vector(0.2, 0)
+      //this.force = new Vector(4,1)
+      //this.gravity = new Vector(0, 0.4)
+      //this.wind = new Vector(0.2, 0)
       this.platforms = new Array()
       this.options = {
         isStatic: true,
@@ -23,7 +23,7 @@ class GamePlay {
       this.top = new Rectangle(canvas.width / 2,  -40, canvas.width + 40, 80)
       this.left = new Rectangle(-100, canvas.height / 2, 200, canvas.height + 20)
 
-      World.add(world,[ this.left, this.top])
+      World.add(world,[this.left, this.top])
     }
 
   drawCanvas = () => {
@@ -57,6 +57,7 @@ class GamePlay {
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
       }, 2000)
     }
+
     if (this.gameBall.youWon()) {
       window.alert("OMG you won!")
       stopInterval()
@@ -68,7 +69,7 @@ class GamePlay {
   }
 
    makePlatform = function(e, array) {
-    array.push(new Platform(e.offsetX, e.offsetY, 50, 20))
+    array.push(new Platform(e.offsetX, e.offsetY, 50, 15))
   }
 
   // Why is this throw an error of not a function
@@ -76,16 +77,5 @@ class GamePlay {
   //   console.log('this= ' + this)
   //   this.drawBall()
   // }
-
-  makeBasket = () => {
-    ctx.beginPath()
-    //ctx.rect(100, 100, 30, 60)
-    let cupBtm = ctx.rect(100, 140, 60, 10)
-    let cupL = ctx.rect(100, 100, 10, 40)
-    let cupR = ctx.rect(150, 100, 10, 40)
-    //this.fillStyle = '#555555'
-    ctx.fill()
-    ctx.closePath()
-  }
 
 }

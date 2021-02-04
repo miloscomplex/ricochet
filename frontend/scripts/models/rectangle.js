@@ -15,7 +15,7 @@ class Rectangle {
     let pos = this.body.position
     ctx.beginPath()
     ctx.rect(pos.x, pos.y, this.width, this.height)
-    this.fillStyle = '#555555'
+    ctx.fillStyle = '#4caf50'
     ctx.fill()
     ctx.closePath()
   }
