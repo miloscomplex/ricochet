@@ -11,7 +11,7 @@ class GamePlay {
       this.options = {
         isStatic: true,
         restitution: 1.3
-      }
+        }
 
       // lexical scoping needs the argument passed
       canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
@@ -26,7 +26,10 @@ class GamePlay {
       this.top = Bodies.rectangle(canvas.width / 2, -40,canvas.width, 80, this.options)
       this.left = Bodies.rectangle(-80, canvas.height / 2, 200, canvas.height +20, this.options)
 
-      World.add(world, [this.right, this.ground, this.left, this.top])
+      this.cup = Bodies.rectangle(canvas.width - 60, canvas.height / 2, 30, 30, {restitution: 0, isStatic: true})
+
+      World.add(world, [this.right, this.ground, this.left, this.top, this.cup])
+
       //this.cup = Bodies.fromVertices(10, 10, "51 0 51 44 6 44 6 0 0 0 0 50 57 50 57 0 51 0")
       //World.add(this.world, this.gameBall)
       //World.add(this.world, this.gambeBall2)
@@ -34,6 +37,12 @@ class GamePlay {
 
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    let pos = this.cup.position
+    ctx.beginPath()
+    ctx.rect(pos.x, pos.y, 30, 30)
+    ctx.fillStyle = '#4caf50'
+    ctx.fill()
+    ctx.closePath()
     Engine.update(engine)
     //this.gameBall.drawBall()
     this.platforms.forEach( platform => platform.drawPlatform())
