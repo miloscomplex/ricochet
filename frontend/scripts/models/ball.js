@@ -35,6 +35,11 @@ class Ball {
     return (pos.y > canvas.height + 80)
   }
 
+  youWon = function() {
+    let pos = this.body.position
+    return (pos.x > canvas.width + 40 && pos.y <= canvas.height)
+  }
+
   removeFromWorld = function() {
     World.remove(world, this.body)
   }

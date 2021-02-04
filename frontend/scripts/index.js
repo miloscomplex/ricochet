@@ -12,7 +12,7 @@ const Vertices = Matter.Vertices
 const Svg = Matter.Svg
 const engine = Engine.create()
 const world = engine.world
-world.gravity.y = 1.5
+world.gravity.y = 1
 
 // let loadSvg = function(url) {
 //   return fetch(url)
@@ -32,4 +32,4 @@ function stopInterval() {
   clearInterval(interval)
 }
 
-setTimeout( stopInterval, 30000)
+setTimeout( stopInterval, 100000)
