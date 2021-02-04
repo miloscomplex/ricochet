@@ -7,8 +7,10 @@ class Ball {
     this.force = new Vector(vecX, vecY)
     //this.force = { x: vecX, y: vecY }
     this.options = {
-      friction: 0.1,
-      restitution: 1
+      friction: 0,
+      restitution: 1.3,
+      velocity: this.force,
+      force: { x: 0.008, y: 0}
     }
     this.body = Bodies.circle(x, y, radius, this.options)
     //this.body = Matter.Body.setInertia(this.body, 1)

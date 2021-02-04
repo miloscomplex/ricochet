@@ -5,7 +5,9 @@ class Platform {
     this.width = w
     this.options = {
       friction: 0.3,
-      restitution: 0.6
+      restitution: 0.6,
+      isStatic: true
+
     }
     this.body = Bodies.rectangle(x, y, w, h, this.options)
     World.add(world, this.body)
