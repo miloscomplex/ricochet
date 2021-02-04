@@ -9,15 +9,16 @@ class GamePlay {
       this.wind = new Vector(0.2, 0)
       this.platforms = new Array()
       this.options = {
-        isStatic: true
+        isStatic: true,
+        restitution: 1.3
       }
 
       // lexical scoping needs the argument passed
       canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
       //Engine.run(this.engine)
       this.bounds = Matter.Bounds.create()
-      this.gameBall = new Ball(this.x, -30, this.ballRadius, 0, 0.5)
-      //this.gameBall2 = new Ball(this.x ,30 ,this.ballRadius, 8, 1)
+      this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
+      this.gameBall2 = new Ball(this.x ,30 ,this.ballRadius, 8, 1)
 
       this.ground = Bodies.rectangle(canvas.width / 2, canvas.height + 40, canvas.width, 80, this.options)
 
@@ -35,18 +36,8 @@ class GamePlay {
     Engine.update(engine)
     //this.gameBall.drawBall()
     this.platforms.forEach( platform => platform.drawPlatform())
-    this.gameBall.updatePosition()
-
-    // update position
-    //this.gameBall.updatePosition()
-    //this.gameBall2.applyForce(this.gravity)
-    //this.gameBall2.applyForce(this.wind)
-    //this.gameBall2.update()
-    //this.gameBall2.checkEdges()
-
-    // drawBall
-    //this.gameBall2.drawBall()
     this.gameBall.drawBall()
+    this.gameBall2.drawBall()
   }
 
   draw = () => {
