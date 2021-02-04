@@ -1,54 +1,65 @@
 class Ball {
   constructor(x,y,radius, vecX, vecY) {
     this.position = new Vector(x,y)
-    this.velocity = new Vector(0,0)
-    this.acceleration = new Vector(0,0)
-    this.ballRadius = radius
-    this.force = new Vector(vecX, vecY)
+    //this.velocity = new Vector(0,0)
+    //this.acceleration = new Vector(0,0)
+    this.radius = radius
+    //this.force = new Vector(vecX, vecY)
+    //this.force = { x: vecX, y: vecY }
+    this.options = {
+      friction: 0.1,
+      restitution: 0.6
+    }
+    this.body = Bodies.circle(x, y, radius)
+    console.log(this.body)
+    //console.log(newGame.world)
+    //World.add(newGame.world, this.body)
+
   }
 
   drawBall = function() {
+    let pos = this.body.position
     ctx.beginPath()
-    ctx.arc(this.position.x, this.position.y, this.ballRadius, 0, Math.PI*2)
+    ctx.arc(pos.x, pos.y, this.radius, 0, Math.PI*2)
     ctx.fillStyle = '#0095DD'
     ctx.fill()
     ctx.closePath()
   }
 
-  applyForce = function(force) {
-    // F = M * A || A = F / M ( setting M = 1 )
-    this.acceleration.add(force)
-  }
+  // applyForce = function(force) {
+  //   // F = M * A || A = F / M ( setting M = 1 )
+  //   this.acceleration.add(force)
+  // }
 
-  update = function() {
-    this.velocity.add(this.acceleration)
-    this.position.add(this.velocity)
-    this.acceleration.setter(0,0)
-    // Eulor time steps so needs to be reset
-  }
+  // update = function() {
+  //   this.velocity.add(this.acceleration)
+  //   this.position.add(this.velocity)
+  //   this.acceleration.setter(0,0)
+  //   // Eulor time steps so needs to be reset
+  // }
 
-  updatePosition = function() {
-    if (this.position.x + this.force.x > canvas.width - this.ballRadius || this.position.x + this.force.x < this.ballRadius) {
-      this.force.x = -this.force.x
-    }
-    if (this.position.y + this.force.y > canvas.height - this.ballRadius || this.position.y + this.force.y < this.ballRadius ) {
-      this.force.y = -this.force.y
-    }
-    this.position.x += this.force.x
-    this.position.y += this.force.y
-  }
+  // updatePosition = function() {
+  //   if (this.position.x + this.force.x > canvas.width - this.ballRadius || this.position.x + this.force.x < this.ballRadius) {
+  //     this.force.x = -this.force.x
+  //   }
+  //   if (this.position.y + this.force.y > canvas.height - this.ballRadius || this.position.y + this.force.y < this.ballRadius ) {
+  //     this.force.y = -this.force.y
+  //   }
+  //   this.position.x += this.force.x
+  //   this.position.y += this.force.y
+  // }
 
-  checkEdges = function() {
-    if (this.position.x >= canvas.width - this.ballRadius) {
-      this.position.x = canvas.width - this.ballRadius
-      this.velocity.x *= -1
-    } else if (this.position.x <= this.ballRadius) {
-      this.position.x = this.ballRadius
-      this.velocity.x *= -1
-    }
-    if (this.position.y >= canvas.height - this.ballRadius || this.position.y <= this.ballRadius ) {
-      this.position.y = canvas.height - this.ballRadius
-      this.velocity.y *= -1
-    }
-  }
+  // checkEdges = function() {
+  //   if (this.position.x >= canvas.width - this.ballRadius) {
+  //     this.position.x = canvas.width - this.ballRadius
+  //     this.velocity.x *= -1
+  //   } else if (this.position.x <= this.ballRadius) {
+  //     this.position.x = this.ballRadius
+  //     this.velocity.x *= -1
+  //   }
+  //   if (this.position.y >= canvas.height - this.ballRadius || this.position.y <= this.ballRadius ) {
+  //     this.position.y = canvas.height - this.ballRadius
+  //     this.velocity.y *= -1
+  //   }
+  // }
 }
