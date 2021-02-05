@@ -1,6 +1,7 @@
 class Timer {
   constructor(settings) {
     this.startTime = new Date()
+    this.stopTime = 0
   }
 
   start = function() {
@@ -11,7 +12,8 @@ class Timer {
     this.endTime = new Date()
     let timeDiff = this.endTime - this.startTime
     // remove miliseconds & round seconds
-    return  Math.round(timeDiff / 1000)
+    this.stopTime = Math.round(timeDiff / 1000)
+    return  this.stopTime
   }
 
 

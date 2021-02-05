@@ -1,3 +1,5 @@
+/* Roboto weights 300;400;700;900 */
+
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -11,10 +13,21 @@ body {
   margin: 2.5em auto 2em auto;
 }
 
+#canvasOverlay {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
 canvas {
   background-color: #000;
 }
 
 .timer {
-  margin: 20px 0 0 20px;
+  margin: 10px 0 0 10px;
+  position: absolute;
+  top: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+
 }

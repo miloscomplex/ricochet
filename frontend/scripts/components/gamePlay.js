@@ -25,6 +25,7 @@ class GamePlay {
 
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    this.ui.updateTime(this.timer.elapsedTime())
     //console.log(this.timer.elapsedTime());
     Engine.update(engine)
 
@@ -42,11 +43,10 @@ class GamePlay {
     if (this.gameBall.youWon()) {
       this.gameBall.removeFromWorld()
       this.gameBall = null
-      window.alert("OMG you won!")
-      
+      this.timer.timerRunning = false
       stopInterval()
+      window.alert("OMG you won!")
     }
-    this.ui.updateTime(this.timer.elapsedTime())
   }
 
   draw = () => {
