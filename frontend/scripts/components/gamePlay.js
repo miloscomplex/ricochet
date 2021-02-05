@@ -20,15 +20,13 @@ class GamePlay {
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     Engine.update(engine)
-    //let p = new Path2D(CUSTOM_PATH)
+
     this.goalPost.drawRectangle()
-    //this.gameBall.drawBall()
+
     this.platforms.forEach( platform => platform.drawPlatform())
     this.gameBall.drawBall()
-    //this.gameBall2.drawBall()
     if (this.gameBall.isOffScreen()) {
       this.gameBall.removeFromWorld()
-      //this.gameBall = null
       // setTimeout(this.resetBall, 2000)
       // creating crazy amount of objects
       this.resetBall()
