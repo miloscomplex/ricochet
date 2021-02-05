@@ -4,7 +4,8 @@ class Ui {
     this.canvasOverlay = document.getElementById('canvasOverlay')
     this.timerDiv = document.createElement('div')
     this.timerText = document.createTextNode("")
-    this.removePlatform = document.createElement('a')
+    this.platformBtn = document.createElement('a')
+
   }
 
   attachTimer = function() {
@@ -18,5 +19,12 @@ class Ui {
     if (this.timerRunning) {
       this.timerDiv.innerText = `Sec: ${time}`
     }
+  }
+
+  attachPlatformBtn = function() {
+    this.platformBtn.className = 'button'
+    this.platformBtn.innerText = 'remove platform'
+    this.canvasOverlay.append(this.platformBtn)
+    return this.platformBtn 
   }
 }

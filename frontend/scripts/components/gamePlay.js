@@ -6,11 +6,12 @@ class GamePlay {
       this.timer = new Timer()
       this.ui = new Ui()
       this.ui.attachTimer()
+      this.platformBtn = this.ui.attachPlatformBtn()
       //this.attachTimer = ui.attachTimer()
-
+      this.platformBtn.addEventListener('click', event => )
       this.interval = setInterval( this.checkTimer, 1000)
       // lexical scoping needs the argument passed
-      canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
+      canvas.addEventListener('click', event => this.makePlatform(event, this.platforms))
       //Engine.run(this.engine)
 
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
