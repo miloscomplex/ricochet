@@ -3,6 +3,8 @@ class GamePlay {
     constructor() {
       this.ballRadius = 6
       this.platforms = new Array()
+      this.timer = new Timer()
+      setInterval( this.checkTimer, 1000)
       // lexical scoping needs the argument passed
       canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
       //Engine.run(this.engine)
@@ -19,6 +21,7 @@ class GamePlay {
 
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    //console.log(this.timer.elapsedTime());
     Engine.update(engine)
 
     this.goalPost.drawRectangle()
@@ -65,6 +68,10 @@ class GamePlay {
       let lastPlatform = this.platforms.pop()
       World.remove(world, lastPlatform.body)
     }
+  }
+
+  checkTimer = () => {
+    console.log(this.timer.elapsedTime())
   }
 
 }
