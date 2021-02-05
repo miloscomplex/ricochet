@@ -6,6 +6,7 @@ class GamePlay {
       this.timer = new Timer()
       this.ui = new Ui()
       this.ui.attachTimer()
+      this.platformCounter = this.ui.attachPlatfromCounter() 
       this.platformBtn = this.ui.attachPlatformBtn()
       //this.attachTimer = ui.attachTimer()
       this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))

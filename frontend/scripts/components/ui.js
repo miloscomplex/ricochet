@@ -5,7 +5,7 @@ class Ui {
     this.timerDiv = document.createElement('div')
     this.timerText = document.createTextNode("")
     this.platformBtn = document.createElement('a')
-
+    this.platformCounter = document.createElement('div')
   }
 
   attachTimer = function() {
@@ -25,6 +25,13 @@ class Ui {
     this.platformBtn.className = 'button'
     this.platformBtn.innerText = 'remove platform'
     this.canvasOverlay.append(this.platformBtn)
-    return this.platformBtn 
+    return this.platformBtn
+  }
+
+  attachPlatfromCounter = function() {
+    this.platformCounter.className = 'platformCounter'
+    this.platformCounter.innerText = 'platforms used'
+    this.canvasOverlay.append(this.platformCounter)
+    return this.platformCounter
   }
 }
