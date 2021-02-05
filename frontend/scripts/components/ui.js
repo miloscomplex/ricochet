@@ -6,6 +6,7 @@ class Ui {
     this.timerText = document.createTextNode("")
     this.platformBtn = document.createElement('a')
     this.platformCounter = document.createElement('div')
+    this.restartGameBtn = document.createElement('a')
   }
 
   attachTimer = function() {
@@ -33,5 +34,11 @@ class Ui {
     this.platformCounter.innerText = 'platforms used'
     this.canvasOverlay.append(this.platformCounter)
     return this.platformCounter
+  }
+
+  attachRestartGameBtn = function() {
+    this.restartGameBtn.className = 'button'
+    this.restartGameBtn.innerText = 'restart'
+    this.canvasOverlay.append(this.restartGameBtn)
   }
 }

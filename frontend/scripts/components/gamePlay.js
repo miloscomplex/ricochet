@@ -6,8 +6,9 @@ class GamePlay {
       this.timer = new Timer()
       this.ui = new Ui()
       this.ui.attachTimer()
-      this.platformCounter = this.ui.attachPlatfromCounter() 
+      this.platformCounter = this.ui.attachPlatfromCounter()
       this.platformBtn = this.ui.attachPlatformBtn()
+      this.restartBtn = this.ui.attachRestartGameBtn()
       //this.attachTimer = ui.attachTimer()
       this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
       this.interval = setInterval( this.checkTimer, 1000)
@@ -65,7 +66,7 @@ class GamePlay {
   }
 
   // Why is this throw an error of not a function
-  // if reg function needs to be bound
+  // if reg function needs to be bound context of this
   // draw = function(this) {
   //   console.log('this= ' + this)
   //   this.drawBall()

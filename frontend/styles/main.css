@@ -17,14 +17,15 @@ body {
 #canvasOverlay {
   padding: 0;
   position: relative;
-  opacity: 0.7
 }
 
 canvas {
   background-color: #000;
+  border-radius: .5em;
 }
 
 .timer {
+  opacity: 0.5;
   margin: 10px 0 0 10px;
   position: absolute;
   top: 0;
@@ -34,12 +35,14 @@ canvas {
 }
 
 .platformCounter {
-  margin: 10px 20px;
+  opacity: 0.5;
+  margin: 10px 10px;
   position: absolute;
   top: 0;
   right: 0;
   font-weight: 700;
-  font-size: .8em
+  font-size: .8em;
+  text-transform: uppercase;
 }
 
 .button {
@@ -47,6 +50,7 @@ canvas {
   display: inline-block;
   background-color: #000;
   padding: 1em 1.2em;
+  margin-right: .4em;
   text-transform: uppercase;
   font-weight: 700;
   font-size: .8em;
