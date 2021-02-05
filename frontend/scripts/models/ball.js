@@ -8,7 +8,6 @@ class Ball {
     this.force = new Vector(vecX, vecY)
     this.options = {
       restitution: 1.3,
-      //velocity: this.force,
       friction: 0,
       //force: { x: 12, y: 3 },
       // force is zeroed out after body.update
