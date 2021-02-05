@@ -16,8 +16,7 @@ let interval;
 let newGame;
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  newGame = new GamePlay()
-  interval = setInterval(newGame.draw, 10)
+  startGame()
 })
 
 function stopInterval() {

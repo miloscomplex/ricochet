@@ -34,6 +34,7 @@ class GamePlay {
 
     this.goalPost.drawRectangle()
 
+    this.ui.updatePlatformCount(this.platforms)
     this.platforms.forEach( platform => platform.drawPlatform())
     this.gameBall.drawBall()
     if (this.gameBall.isOffScreen()) {
@@ -47,6 +48,8 @@ class GamePlay {
       this.gameBall.removeFromWorld()
       this.gameBall = null
       this.timer.timerRunning = false
+      this.platformCounter.remove()
+      this.platformBtn.remove()
       stopInterval()
       window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish.`)
     }

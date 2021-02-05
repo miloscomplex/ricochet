@@ -14,6 +14,7 @@ class Ui {
     //this.timerDiv.appendChild(timerText)
     this.canvasOverlay.append(this.timerDiv)
     this.timerRunning = true
+    return this.timerDiv
   }
 
   updateTime = function(time) {
@@ -36,9 +37,16 @@ class Ui {
     return this.platformCounter
   }
 
+  updatePlatformCount = function(array) {
+    if (array) {
+      this.platformCounter.innerText = `Platforms Used: ${array.length}`
+    }
+  }
+
   attachRestartGameBtn = function() {
     this.restartGameBtn.className = 'button'
     this.restartGameBtn.innerText = 'restart'
     this.canvasOverlay.append(this.restartGameBtn)
+    return this.restartGameBtn
   }
 }
