@@ -4,22 +4,15 @@ class GamePlay {
       this.x = canvas.width / 2
       this.y = canvas.height / 2
       this.ballRadius = 6
-      //this.force = new Vector(4,1)
-      //this.gravity = new Vector(0, 0.4)
-      //this.wind = new Vector(0.2, 0)
       this.platforms = new Array()
-      this.options = {
-        isStatic: true,
-        restitution: 1.3
-        }
-
       // lexical scoping needs the argument passed
       canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
       //Engine.run(this.engine)
+
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
 
-      //this.ground = new Rectangle(canvas.width / 2, canvas.height + 40, canvas.width, 80)
-      //this.right = new Rectangle(canvas.width + 40, canvas.height / 2, 80, canvas.height + 30)
+      this.goalPost = new Rectangle(canvas.width, 200 + canvas.height / 2, 20, canvas.height )
+
       this.top = new Rectangle(canvas.width / 2,  -40, canvas.width + 40, 80)
       this.left = new Rectangle(-100, canvas.height / 2, 200, canvas.height + 20)
 
@@ -30,6 +23,7 @@ class GamePlay {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     //let p = new Path2D(CUSTOM_PATH)
     ctx.fill(this.p)
+    this.goalPost.drawRectangle()
     // ctx.beginPath()
     // //ctx.rect(100, 100, 30, 60)
     // let cupBtm = ctx.rect(100, 140, 60, 10)
@@ -55,7 +49,7 @@ class GamePlay {
       this.gameBall.removeFromWorld()
       //this.gameBall = null
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
-      }, 2000)
+    }, 1000)
     }
 
     if (this.gameBall.youWon()) {

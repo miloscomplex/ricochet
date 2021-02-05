@@ -14,8 +14,8 @@ class Rectangle {
   drawRectangle = function() {
     let pos = this.body.position
     ctx.beginPath()
-    ctx.rect(pos.x, pos.y, this.width, this.height)
-    ctx.fillStyle = '#4caf50'
+    ctx.rect(pos.x - this.width / 2, pos.y - this.height / 2, this.width, this.height)
+    ctx.fillStyle = '#0095DD'
     ctx.fill()
     ctx.closePath()
   }
