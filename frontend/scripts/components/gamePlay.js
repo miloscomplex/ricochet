@@ -46,7 +46,7 @@ class GamePlay {
       this.gameBall = null
       this.timer.timerRunning = false
       stopInterval()
-      window.alert("OMG you won!")
+      window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish.`)
     }
   }
 
