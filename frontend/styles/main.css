@@ -9,6 +9,11 @@ body {
   color: #eee;
 }
 
+h1  {
+  letter-spacing: 4px;
+  margin: .2em;
+}
+
 #wrapper {
   width: 800px;
   margin: 2.5em auto 2em auto;
@@ -53,7 +58,7 @@ canvas {
   margin-right: .4em;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: .8em;
+  font-size: .7em;
   color: #0095DD;
   cursor: pointer;
   border-radius: .5em;
