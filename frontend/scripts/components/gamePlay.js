@@ -8,7 +8,7 @@ class GamePlay {
       this.ui.attachTimer()
       this.platformBtn = this.ui.attachPlatformBtn()
       //this.attachTimer = ui.attachTimer()
-      this.platformBtn.addEventListener('click', event => )
+      this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
       this.interval = setInterval( this.checkTimer, 1000)
       // lexical scoping needs the argument passed
       canvas.addEventListener('click', event => this.makePlatform(event, this.platforms))
@@ -70,9 +70,9 @@ class GamePlay {
   //   this.drawBall()
   // }
 
-  removePlatform = function() {
-    if (this.platforms && this.platforms.length) {
-      let lastPlatform = this.platforms.pop()
+  removePlatform = function(array) {
+    if (array && array.length) {
+      let lastPlatform = array.pop()
       World.remove(world, lastPlatform.body)
     }
   }
