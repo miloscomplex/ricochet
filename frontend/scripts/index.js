@@ -12,7 +12,7 @@ const Vertices = Matter.Vertices
 const Svg = Matter.Svg
 const engine = Engine.create()
 const world = engine.world
-world.gravity.y = 1
+world.gravity.y = .33
 
 let newGame = new GamePlay()
 const interval = setInterval(newGame.draw, 10)
