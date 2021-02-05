@@ -3,12 +3,13 @@
 const canvas = document.getElementById('myCanvas')
 const ctx = canvas.getContext('2d')
 
-// module aliases
+// module aliases for Matter.js
 const Engine = Matter.Engine
 const World = Matter.World
 const Bodies = Matter.Bodies
 const Vertices = Matter.Vertices
 const Svg = Matter.Svg
+
 const engine = Engine.create()
 const world = engine.world
 world.gravity.y = .33
@@ -23,10 +24,10 @@ function stopInterval() {
   clearInterval(interval)
 }
 
-setTimeout( stopInterval, 1000)
+setTimeout( stopInterval, 9000)
 
 function startGame() {
   newGame = null
   newGame = new GamePlay()
-  interval = setInterval(newGame.draw, 10)
+  interval = setInterval(newGame.drawCanvas, 10)
 }

@@ -21,4 +21,8 @@ class Platform {
     ctx.closePath()
   }
 
+  removeFromWorld = function() {
+    World.remove(world, this.body)
+  }
+
 }

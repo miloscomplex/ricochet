@@ -5,25 +5,25 @@ class GamePlay {
       this.platforms = new Array()
       this.timer = new Timer()
       this.ui = new Ui()
-      this.ui.attachTimer()
+      this.timerDiv = this.ui.attachTimer()
       this.platformCounter = this.ui.attachPlatfromCounter()
       this.platformBtn = this.ui.attachPlatformBtn()
       this.restartBtn = this.ui.attachRestartGameBtn()
-      //this.attachTimer = ui.attachTimer()
       this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
       this.interval = setInterval( this.checkTimer, 1000)
+
       // lexical scoping needs the argument passed
-      canvas.addEventListener('click', event => this.makePlatform(event, this.platforms))
+      canvas.addEventListener('click', event =>           this.makePlatform(event, this.platforms))
       //Engine.run(this.engine)
 
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
 
       this.goalPost = new Rectangle(canvas.width, 200 + canvas.height / 2, 20, canvas.height )
 
-      this.top = new Rectangle(canvas.width / 2,  -40, canvas.width + 40, 80)
-      this.left = new Rectangle(-100, canvas.height / 2, 200, canvas.height + 20)
+      this.canvasTop = new Rectangle(canvas.width / 2,  -40, canvas.width + 40, 80)
+      this.canvasLeft = new Rectangle(-100, canvas.height / 2, 200, canvas.height + 20)
 
-      World.add(world,[this.left, this.top])
+      World.add(world,[this.canvasLeft, this.canvasTop])
     }
 
   drawCanvas = () => {
@@ -45,12 +45,13 @@ class GamePlay {
     }
 
     if (this.gameBall.youWon()) {
+      stopInterval()
       this.gameBall.removeFromWorld()
-      this.gameBall = null
       this.timer.timerRunning = false
+      this.platforms.forEach( element => element.removeFromWorld())
       this.platformCounter.remove()
       this.platformBtn.remove()
-      stopInterval()
+      this.gameBall = null
       window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish.`)
     }
   }
@@ -68,7 +69,7 @@ class GamePlay {
     this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
   }
 
-  // Why is this throw an error of not a function
+  // Why does this throw an error of not a function
   // if reg function needs to be bound context of this
   // draw = function(this) {
   //   console.log('this= ' + this)
@@ -80,11 +81,6 @@ class GamePlay {
       let lastPlatform = array.pop()
       World.remove(world, lastPlatform.body)
     }
-  }
-
-  checkTimer = () => {
-    //console.log(this.timer.elapsedTime())
-
   }
 
 }

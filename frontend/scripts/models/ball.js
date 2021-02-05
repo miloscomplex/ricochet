@@ -1,9 +1,7 @@
 class Ball {
   constructor(x,y,radius, vecX, vecY) {
     this.position = new Vector(x,y)
-    //this.velocity = new Vector(0,0)
     // velocity is readonle apply a force or change position instead
-    //this.acceleration = new Vector(0,0)
     this.radius = radius
     this.force = new Vector(vecX, vecY)
     this.options = {
