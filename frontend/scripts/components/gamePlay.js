@@ -4,7 +4,11 @@ class GamePlay {
       this.ballRadius = 6
       this.platforms = new Array()
       this.timer = new Timer()
-      setInterval( this.checkTimer, 1000)
+      this.ui = new Ui()
+      this.ui.attachTimer()
+      //this.attachTimer = ui.attachTimer()
+
+      this.interval = setInterval( this.checkTimer, 1000)
       // lexical scoping needs the argument passed
       canvas.addEventListener("click", event => this.makePlatform(event, this.platforms))
       //Engine.run(this.engine)
@@ -39,8 +43,10 @@ class GamePlay {
       this.gameBall.removeFromWorld()
       this.gameBall = null
       window.alert("OMG you won!")
+      
       stopInterval()
     }
+    this.ui.updateTime(this.timer.elapsedTime())
   }
 
   draw = () => {
@@ -71,7 +77,8 @@ class GamePlay {
   }
 
   checkTimer = () => {
-    console.log(this.timer.elapsedTime())
+    //console.log(this.timer.elapsedTime())
+
   }
 
 }
