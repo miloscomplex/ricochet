@@ -2,6 +2,7 @@
 // GLOBAL VARIABLES
 const canvas = document.getElementById('myCanvas')
 const ctx = canvas.getContext('2d')
+const URL = 'http://localhost:'
 
 // module aliases for Matter.js
 const Engine = Matter.Engine

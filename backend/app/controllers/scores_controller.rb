@@ -11,11 +11,12 @@ class ScoresController < ApplicationController
     end
 
     def create
-      score = Score.create(user_params)
-      if score.save
+      user = User.find_or_create_by(user_params)
+      score = user.scores.build(score_params)
+      if user.valid? && score.save
         render json: score
       else
-        #render json: { }
+        render json: { error: "Couldn't create the score", status: 400 }
       end
     end
 
