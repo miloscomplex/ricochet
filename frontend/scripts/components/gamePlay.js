@@ -55,10 +55,6 @@ class GamePlay {
     }
   }
 
-  draw = () => {
-    this.drawCanvas()
-  }
-
    makePlatform = function(e, array) {
     array.push(new Platform(e.offsetX, e.offsetY, 50, 15))
   }
