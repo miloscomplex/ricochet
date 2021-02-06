@@ -6,7 +6,7 @@ class ScoresController < ApplicationController
     end
 
     def show
-      user = Score.find_by_id(params[:id])
+      score = Score.find_by_id(params[:id])
       render json: score
     end
 
@@ -15,7 +15,8 @@ class ScoresController < ApplicationController
       if score.save
         render json: score
       else
-        render json: { }
+        #render json: { }
+      end
     end
 
     def destroy

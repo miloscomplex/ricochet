@@ -15,13 +15,14 @@ class UsersController < ApplicationController
     if user.save
       render json: user
     else
-      render json: { }
+      #render json: { }
+    end
   end
 
   def destroy
     user = User.find_by_id(params[:id])
     user.destroy
-    render json: user 
+    render json: user
   end
 
   private
