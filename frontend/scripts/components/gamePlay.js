@@ -4,6 +4,7 @@ class GamePlay {
       this.platforms = new Array()
       this.timer = new Timer()
       this.ui = new Ui()
+
       this.timerDiv = this.ui.attachTimer()
       this.platformCounter = this.ui.attachPlatfromCounter()
       this.platformBtn = this.ui.attachPlatformBtn()
@@ -32,7 +33,6 @@ class GamePlay {
     Engine.update(engine)
 
     this.goalPost.drawRectangle()
-
     this.ui.updatePlatformCount(this.platforms)
     this.platforms.forEach( platform => platform.drawPlatform())
     this.gameBall.drawBall()
@@ -48,6 +48,7 @@ class GamePlay {
       this.timer.timerRunning = false
       this.gameBall.removeFromWorld()
       this.platforms.forEach( element => element.removeFromWorld())
+      this.platforms = []
       this.platformCounter.remove()
       this.platformBtn.remove()
       this.gameBall = null

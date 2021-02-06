@@ -17,6 +17,7 @@ class Ball {
   }
 
   drawBall = function() {
+    // force is only applied per reDraw
     this.body.force = { x: 0.05, y: -0.05 }
     let pos = this.body.position
 
