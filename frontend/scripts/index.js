@@ -24,7 +24,7 @@ function stopInterval() {
   clearInterval(interval)
 }
 
-setTimeout( stopInterval, 9000)
+setTimeout( stopInterval, 11000)
 
 function startGame() {
   newGame = null

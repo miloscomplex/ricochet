@@ -1,7 +1,6 @@
 class GamePlay {
 
     constructor() {
-      this.ballRadius = 6
       this.platforms = new Array()
       this.timer = new Timer()
       this.ui = new Ui()
@@ -9,13 +8,14 @@ class GamePlay {
       this.platformCounter = this.ui.attachPlatfromCounter()
       this.platformBtn = this.ui.attachPlatformBtn()
       this.restartBtn = this.ui.attachRestartGameBtn()
-      this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
       this.interval = setInterval( this.checkTimer, 1000)
 
       // lexical scoping needs the argument passed
       canvas.addEventListener('click', event =>           this.makePlatform(event, this.platforms))
-      //Engine.run(this.engine)
+      this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
 
+      //Engine.run(this.engine)
+      this.ballRadius = 6
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
 
       this.goalPost = new Rectangle(canvas.width, 200 + canvas.height / 2, 20, canvas.height )
@@ -29,7 +29,6 @@ class GamePlay {
   drawCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     this.ui.updateTime(this.timer.elapsedTime())
-    //console.log(this.timer.elapsedTime());
     Engine.update(engine)
 
     this.goalPost.drawRectangle()
@@ -46,13 +45,13 @@ class GamePlay {
 
     if (this.gameBall.youWon()) {
       stopInterval()
-      this.gameBall.removeFromWorld()
       this.timer.timerRunning = false
+      this.gameBall.removeFromWorld()
       this.platforms.forEach( element => element.removeFromWorld())
       this.platformCounter.remove()
       this.platformBtn.remove()
       this.gameBall = null
-      window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish.`)
+      window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish. It took you ${this.platforms.length} Platforms to win`)
     }
   }
 
