@@ -38,7 +38,7 @@ class GamePlay {
     this.gameBall.drawBall()
     if (this.gameBall.isOffScreen()) {
       this.gameBall.removeFromWorld()
-      // setTimeout(this.resetBall, 2000)
+      setTimeout(() => this.resetBall, 2000)
       // creating crazy amount of objects
       this.resetBall()
     }
@@ -48,11 +48,11 @@ class GamePlay {
       this.timer.timerRunning = false
       this.gameBall.removeFromWorld()
       this.platforms.forEach( element => element.removeFromWorld())
+      window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish. It took you ${this.platforms.length} Platforms to win`)
       this.platforms = []
       this.platformCounter.remove()
       this.platformBtn.remove()
       this.gameBall = null
-      window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish. It took you ${this.platforms.length} Platforms to win`)
     }
   }
 

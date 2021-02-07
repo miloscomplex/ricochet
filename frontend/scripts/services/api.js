@@ -9,6 +9,8 @@ class API {
 
   parseJSON = res => res.json()
 
+  headers = {'Accepts':'application/json', 'Content-Type':'application/json'}
+
   // URL GETTERS //
 
   get usersURL() {
@@ -28,7 +30,7 @@ class API {
   }
 
   getUser = (userId) => {
-    return fetch(this.usersURL + `/$userId`).then(this.parseJSON)
+    return fetch(this.usersURL + `/${userId}`).then(this.parseJSON)
   }
 
   // fetch all scores
@@ -36,9 +38,22 @@ class API {
     return fetch(this.scoresURL).then(this.parseJSON)
   }
 
+  getScore = () => {
+    fetch(this.scoresURL + `/${scoreId}`).then(this.parseJSON)
+  }
+
   getHighScores = () => {
     return fetch(this.scoresURL + '/highscores')
   }
+
+  // POST
+
+  postUser = body => fetch(this.usersURL, {
+    method: 'POST',
+    headers: this.headers,
+    body: JSON.stringify(body)
+  }).then(this.parseJSON)
+
 
 
 
