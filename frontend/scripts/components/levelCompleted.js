@@ -1,7 +1,8 @@
 class LevelCompleted {
-  constructor() {
+  constructor(scoreInfo) {
     // need a clearing method
     canvasWrapper.innerHTML = '' //may be overkill
+    this.scoreInfo = scoreInfo
     this.levelCompletedContainer = document.createElement('div')
     this.levelCompletedContainer.id = 'infoBoxContainer'
     canvasWrapper.append(this.levelCompletedContainer)
@@ -12,7 +13,7 @@ class LevelCompleted {
 
   successMessage = function() {
     const successMessage = document.createElement('p')
-    successMessage.innerText = `Excellent Job! You won in {scoreInfo.time} seconds and while using {scoreInfo.platforms_used} platforms. Submit your score to see how you rank.`
+    successMessage.innerText = `Excellent Job! You won in ${this.scoreInfo.time} seconds and while using ${this.scoreInfo.platformsUsed} platforms. Submit your score to see how you rank.`
     this.levelCompletedContainer.append(successMessage)
   }
 
@@ -27,10 +28,18 @@ class LevelCompleted {
     const initialsLabel = document.createElement('label')
     initialsLabel.innerText = 'Initials: '
     const initialsForm = document.createElement('input')
-    const submitButton = document.createElement('input')
+    const submitButton = document.createElement('submit')
     submitButton.type = 'submit'
     submitButton.className = 'button'
-    submitButton.value = 'Submit Your Score'
+    submitButton.innerText = 'Submit Your Score'
+    submitButton.addEventListener('click', function(e) {
+      e.preventDefault()
+      console.log(event);
+    })
     nameForm.append(nameLabel, nameInput, initialsLabel, initialsForm, submitButton)
+  }
+
+  scoreSubmitted = function(event) {
+
   }
 }

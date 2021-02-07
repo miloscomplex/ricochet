@@ -28,7 +28,7 @@ class GamePlay {
     }
 
   drawCanvas = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    //ctx.clearRect(0, 0, canvas.width, canvas.height)
     this.ui.updateTime(this.timer.elapsedTime())
     Engine.update(engine)
 
@@ -48,7 +48,8 @@ class GamePlay {
       this.timer.timerRunning = false
       this.gameBall.removeFromWorld()
       this.platforms.forEach( element => element.removeFromWorld())
-      window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish. It took you ${this.platforms.length} Platforms to win`)
+      const levelCompleted = new LevelCompleted({time: this.timer.stopTime, platformsUsed: this.platforms.length})
+      //window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish. It took you ${this.platforms.length} Platforms to win`)
       this.platforms = []
       this.platformCounter.remove()
       this.platformBtn.remove()
