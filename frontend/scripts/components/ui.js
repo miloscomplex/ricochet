@@ -1,7 +1,7 @@
 class Ui {
   constructor() {
     this.timerRunning = false
-    this.canvasOverlay = document.getElementById('canvasOverlay')
+    this.canvasWrapper = document.getElementById('canvasWrapper')
     this.timerDiv = document.createElement('div')
     this.timerText = document.createTextNode("")
     this.platformBtn = document.createElement('a')
@@ -12,7 +12,7 @@ class Ui {
   attachTimer = function() {
     this.timerDiv.className = 'timer'
     //this.timerDiv.appendChild(timerText)
-    this.canvasOverlay.append(this.timerDiv)
+    this.canvasWrapper.append(this.timerDiv)
     this.timerRunning = true
     return this.timerDiv
   }
@@ -26,14 +26,14 @@ class Ui {
   attachPlatformBtn = function() {
     this.platformBtn.className = 'button'
     this.platformBtn.innerText = 'remove platform'
-    this.canvasOverlay.append(this.platformBtn)
+    this.canvasWrapper.append(this.platformBtn)
     return this.platformBtn
   }
 
   attachPlatfromCounter = function() {
     this.platformCounter.className = 'platformCounter'
     this.platformCounter.innerText = 'platforms used'
-    this.canvasOverlay.append(this.platformCounter)
+    this.canvasWrapper.append(this.platformCounter)
     return this.platformCounter
   }
 
@@ -46,7 +46,7 @@ class Ui {
   attachRestartGameBtn = function() {
     this.restartGameBtn.className = 'button'
     this.restartGameBtn.innerText = 'restart'
-    this.canvasOverlay.append(this.restartGameBtn)
+    this.canvasWrapper.append(this.restartGameBtn)
     return this.restartGameBtn
   }
 }
