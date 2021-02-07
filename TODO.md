@@ -7,15 +7,24 @@
 - [x] Users are timed
 - [x] The ball enters from the left of the screen and has physical properties to it ( gravity & velocity & maybe drag )
 - [x] The game is won once the user gets the ball ~~into the cup/basket~~  to leave the right side of the canvas
-- [ ] Generate rails backend
-- [ ] Add attributes to each rails-model 
-- [ ] Create correct routes
--
-- [ ] Display an alert if the game is won
+- [x] Generate rails backend
+- [x] Add attributes to each rails-model
+- [x] Create correct routes
+- [ ] Add only rules to routes.rb
+- [x] Test backend
+
+- [x] Display an alert if the game is won
+- [ ] Display a level completed html div
+- [ ] Allow the user to submit their score
+- [ ] User can see the top 10 'high scores' ranked by time and amount of platforms
+
 - [x] There is a basic color scheme to the components of the game
 - [x] Remove platform button
 - [ ] Reset game button
 - [ ] Modal display of time completed
 - [ ] Hi-Score entering and display top 5 scores
 - [x] The ball will leave the game area on the bottom if not platforms are placed to inhibit it’s departure
-- [ ] The game is never lost it just continues to move the ball back to the starting point after leaving the game area
+- [x] The game is never lost it just continues to move the ball back to the starting point after leaving the game area
+
+## STRETCH GOALS
+- [ ] After score submission they are displayed what is their ranking
