@@ -19,7 +19,7 @@ h1  {
   margin: 2.5em auto 2em auto;
 }
 
-#canvasOverlay {
+#canvasWrapper {
   padding: 0;
   position: relative;
 }

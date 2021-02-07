@@ -1,6 +1,7 @@
 
 // GLOBAL VARIABLES
 const canvas = document.getElementById('myCanvas')
+const canvasWrapper = document.getElementById('canvasWrapper')
 const ctx = canvas.getContext('2d')
 const URL = 'http://localhost:'
 const api = new API()
