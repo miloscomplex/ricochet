@@ -59,6 +59,10 @@ canvas {
   border-radius:
 }
 
+#levelCompletedContainer p {
+  font-size: 1.15em;
+}
+
 #levelCompletedContainer * {
   margin-top: 10px;
 }
