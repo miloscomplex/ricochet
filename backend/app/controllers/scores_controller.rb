@@ -16,8 +16,13 @@ class ScoresController < ApplicationController
       if user.valid? && score.save
         render json: score
       else
-        render json: { error: "Couldn't create the score", status: 400 }
+        render json: { error: "Couldn't create the score", status: 200 }
       end
+    end
+
+    def highscores
+      highscores = Score.get_high_scores
+      render json: highscores
     end
 
     def destroy
