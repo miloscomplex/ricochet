@@ -3,7 +3,7 @@ class LevelCompleted {
     // need a clearing method
     canvasWrapper.innerHTML = '' //may be overkill
     this.levelCompletedContainer = document.createElement('div')
-    this.levelCompletedContainer.id = 'levelCompletedContainer'
+    this.levelCompletedContainer.id = 'infoBoxContainer'
     canvasWrapper.append(this.levelCompletedContainer)
 
     this.successMessage()
