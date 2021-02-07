@@ -50,7 +50,7 @@ class LevelCompleted {
     api.postUserScore({
       user: {
         name: this.nameInput.value,
-        initials: this.initialsInput.value
+        initials: this.initialsInput.value.trim().toLowerCase()
       },
       score: {
         time_in_seconds: this.scoreInfo.time,
