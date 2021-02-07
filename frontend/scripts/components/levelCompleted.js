@@ -8,7 +8,7 @@ class LevelCompleted {
     canvasWrapper.append(this.levelCompletedContainer)
 
     this.successMessage()
-    this.nameForm()
+    this.makeForm()
   }
 
   successMessage = function() {
@@ -17,29 +17,48 @@ class LevelCompleted {
     this.levelCompletedContainer.append(successMessage)
   }
 
-  nameForm = function() {
+  makeForm = function() {
     const nameForm = document.createElement('form')
     this.levelCompletedContainer.append(nameForm)
 
     const nameLabel = document.createElement('label')
     nameLabel.innerText = 'Name: '
-    const nameInput = document.createElement('input')
-    nameInput.type = 'text'
+    this.nameInput = document.createElement('input')
+    this.nameInput.type = 'text'
     const initialsLabel = document.createElement('label')
     initialsLabel.innerText = 'Initials: '
-    const initialsForm = document.createElement('input')
-    const submitButton = document.createElement('submit')
+    this.initialsInput = document.createElement('input')
+    this.initialsInput.type = 'text'
+
+    const submitButton = document.createElement('input')
     submitButton.type = 'submit'
     submitButton.className = 'button'
-    submitButton.innerText = 'Submit Your Score'
-    submitButton.addEventListener('click', function(e) {
-      e.preventDefault()
-      console.log(event);
-    })
-    nameForm.append(nameLabel, nameInput, initialsLabel, initialsForm, submitButton)
+    submitButton.value = 'Submit Your Score'
+
+    nameForm.addEventListener('submit', this.scoreSubmitted )
+    // {
+    //   e.preventDefault()
+    //   console.log(event);
+    // })
+    nameForm.append(nameLabel, this.nameInput, initialsLabel, this.initialsInput, submitButton)
   }
 
-  scoreSubmitted = function(event) {
+  scoreSubmitted = event => {
+    event.preventDefault()
+    console.log(event)
+    console.log("nameINput= " + this.nameInput.value)
+    api.postUserScore({
+      user: {
+        name: this.nameInput.value,
+        initials: this.initialsInput.value
+      },
+      score: {
+        time_in_seconds: this.scoreInfo.time,
+        platforms_used: this.scoreInfo.platformsUsed,
+        level: this.scoreInfo.level
+      }
+    })
+    event.target.remove()
 
   }
 }

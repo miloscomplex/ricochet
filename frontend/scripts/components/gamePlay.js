@@ -48,7 +48,7 @@ class GamePlay {
       this.timer.timerRunning = false
       this.gameBall.removeFromWorld()
       this.platforms.forEach( element => element.removeFromWorld())
-      const levelCompleted = new LevelCompleted({time: this.timer.stopTime, platformsUsed: this.platforms.length})
+      const levelCompleted = new LevelCompleted({time: this.timer.stopTime, platformsUsed: this.platforms.length, level: 1})
       //window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish. It took you ${this.platforms.length} Platforms to win`)
       this.platforms = []
       this.platformCounter.remove()
