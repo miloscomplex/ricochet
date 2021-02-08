@@ -1,7 +1,6 @@
 class GamePlay {
 
     constructor() {
-      //canvasWrapper.innerHTML = ''
       this.platforms = new Array()
       this.timer = new Timer()
       this.ui = new Ui()
@@ -39,7 +38,7 @@ class GamePlay {
     this.gameBall.drawBall()
     if (this.gameBall.isOffScreen()) {
       this.gameBall.removeFromWorld()
-      setTimeout(() => this.resetBall, 2000)
+      //setTimeout(() => this.resetBall, 2000)
       // creating crazy amount of objects
       this.resetBall()
     }

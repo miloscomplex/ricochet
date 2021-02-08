@@ -10,6 +10,8 @@ class LevelCompleted {
 
     this.successMessage()
     this.makeForm()
+    this.scoresBtn = document.createElement('a')
+    this.attachSeeScoresBtn()
   }
 
   successMessage = function() {
@@ -73,9 +75,22 @@ class LevelCompleted {
         }
       } else {
         res.json()
+        this.showScores()
         event.target.remove()
-        let showScores = new ShowScores()
       }
     })
+  }
+
+  attachSeeScoresBtn = function() {
+    console.log("hey there");
+    this.scoresBtn.className = 'button'
+    this.scoresBtn.innerText = 'See High Scores'
+    this.levelCompletedContainer.append(this.scoresBtn)
+    this.scoresBtn.addEventListener('click', event => { this.showScores()
+    })
+  }
+
+  showScores = function() {
+    let showScores = new ShowScores()
   }
 }

@@ -29,7 +29,15 @@ class ShowScores {
   attachNewGameBtn = () => {
     this.newGameBtn.className = 'button'
     this.newGameBtn.innerText = 'Play Again?'
+    this.newGameBtn.addEventListener('click', this.startNewGameBtn )
     this.showScoresContainer.append(this.newGameBtn)
+
+  }
+
+  startNewGameBtn = event => {
+    event.preventDefault()
+    canvasWrapper.innerHTML = ''
+    startGame()
   }
 
 }

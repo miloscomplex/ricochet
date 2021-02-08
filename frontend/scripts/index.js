@@ -16,8 +16,7 @@ const Bodies = Matter.Bodies
 const engine = Engine.create()
 const world = engine.world
 world.gravity.y = .33
-let interval;
-//let newGame;
+let interval
 
 window.addEventListener('DOMContentLoaded', (event) => {
   startGame()
@@ -29,8 +28,8 @@ function stopInterval() {
 
 setTimeout( stopInterval, 19000)
 
+
 function startGame() {
-  //if (newGame) { newGame = null }
   const newGame = new GamePlay()
   interval = setInterval(newGame.drawCanvas, 10)
 }
