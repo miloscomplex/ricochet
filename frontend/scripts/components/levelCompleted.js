@@ -46,7 +46,8 @@ class LevelCompleted {
   scoreSubmitted = event => {
     event.preventDefault()
     console.log(event)
-    console.log("nameINput= " + this.nameInput.value)
+    console.log("nameInput= " + this.nameInput.value)
+
     api.postUserScore({
       user: {
         name: this.nameInput.value,
@@ -57,6 +58,12 @@ class LevelCompleted {
         platforms_used: this.scoreInfo.platformsUsed,
         level: this.scoreInfo.level
       }
+    }).catch(function(e) {
+      console.log(e);
+      const error = document.createElement('p')
+      error.className = 'error'
+      error.innerText = 'Uh oh, somehting went wrong'
+      this.levelCompletedContainer.append(error)
     })
     event.target.remove()
 

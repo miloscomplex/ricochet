@@ -3,5 +3,5 @@ class User < ApplicationRecord
 
   validates :name, :initials, presence: true
   validates :initials, length: { minimum: 2, maximum: 4}
-  
+
 end

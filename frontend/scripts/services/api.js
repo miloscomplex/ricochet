@@ -52,13 +52,14 @@ class API {
     method: 'POST',
     headers: this.headers,
     body: JSON.stringify(body)
-  }).then(this.parseJSON)
+  }).then(this.parseJSON).catch(function(e) {
+    console.log(e)})
 
   postUserScore = body => fetch(this.scoresURL, {
     method: 'POST',
     headers: this.headers,
     body: JSON.stringify(body)
-  }).then(this.parseJSON)
+  }).then(this.parseJSON).catch()
 
 
 
