@@ -1,5 +1,6 @@
 class LevelCompleted {
   constructor(scoreInfo) {
+    stopInterval()
     // need a clearing method
     canvasWrapper.innerHTML = '' //may be overkill
     this.scoreInfo = scoreInfo
@@ -58,7 +59,7 @@ class LevelCompleted {
         platforms_used: this.scoreInfo.platformsUsed,
         level: this.scoreInfo.level
       }
-    // refactor if have time 
+    // refactor if have time
     }).then(res => {
       if (!res.ok) {
         //eturn console.log("error" + res.text());
@@ -70,6 +71,6 @@ class LevelCompleted {
     }).then(api.parseJSON)
 
     event.target.remove()
-
+    let showScores = new ShowScores()
   }
 }

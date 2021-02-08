@@ -8,7 +8,7 @@ class Score < ApplicationRecord
   validates :time_in_seconds, numericality: { only_integer: true, greater_than: 1 }
 
   def self.get_high_scores
-    Score.order(:time_in_seconds, :platforms_used).limit(5)
+    Score.order(:time_in_seconds, :platforms_used).limit(10)
   end
 
 end

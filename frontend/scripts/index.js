@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 })
 
 function stopInterval() {
-  clearInterval(interval)
+  return clearInterval(interval)
 }
 
 setTimeout( stopInterval, 19000)

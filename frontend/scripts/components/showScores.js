@@ -7,21 +7,29 @@ class ShowScores {
     this.showScoresContainer.id = 'infoBoxContainer'
     canvasWrapper.append(this.showScoresContainer)
     api.getHighScores().then(this.renderHighScores)
-
+    this.newGameBtn = document.createElement('a')
+    //this.attachNewGameBtn()
   }
 
   renderHighScores = highScoresObj => {
-    const highScoreText = document.createElement('p')
+    const highScoreText = document.createElement('h3')
     highScoreText.innerText = 'Here are the top 10 scores'
-
-    let highScoreList = document.createElement('ul')
     this.showScoresContainer.append(highScoreText)
-
-    highScoresObj.forEach( highScore => {
-      let score = document.createElement('li') score.innerText = `${highScore.user.initials} - Seconds: ${highScore.time_in_seconds} and used ${highScore.platforms_used} platforms`
-      this.showScoresContainer.append(score)
+    const highScoreList = document.createElement('ul')
+    highScoreList.className = 'highScoreList'
+    this.showScoresContainer.append(highScoreList)
+    highScoresObj.forEach( (score, i) => {
+      let scoreLi = document.createElement('li')
+      scoreLi.innerText = `${i + 1 }. ${score.user.initials.toUpperCase()} -- Seconds: ${score.time_in_seconds} -  ${score.platforms_used} platforms used`
+      highScoreList.append(scoreLi)
     })
+    this.attachNewGameBtn()
+  }
 
+  attachNewGameBtn = () => {
+    this.newGameBtn.className = 'button'
+    this.newGameBtn.innerText = 'Play Again?'
+    this.showScoresContainer.append(this.newGameBtn)
   }
 
 }
