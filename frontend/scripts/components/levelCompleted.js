@@ -58,6 +58,7 @@ class LevelCompleted {
         platforms_used: this.scoreInfo.platformsUsed,
         level: this.scoreInfo.level
       }
+    // refactor if have time 
     }).then(res => {
       if (!res.ok) {
         //eturn console.log("error" + res.text());

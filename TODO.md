@@ -17,7 +17,9 @@
 - [ ] Display a level completed html div
 - [ ] Allow the user to submit their score
 - [ ] User can see the top 10 'high scores' ranked by time and amount of platforms
-- [ ] On the backend set rules for db submission only letters, 3 initials, etc 
+- [x] On the backend set rules for db submission only letters, 3 initials, etc
+- [ ] have 
+
 
 - [x] There is a basic color scheme to the components of the game
 - [x] Remove platform button
