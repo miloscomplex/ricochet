@@ -1,7 +1,7 @@
 class GamePlay {
 
     constructor() {
-      //canvasWrapper.innerHTML = '' 
+      //canvasWrapper.innerHTML = ''
       this.platforms = new Array()
       this.timer = new Timer()
       this.ui = new Ui()
@@ -50,7 +50,6 @@ class GamePlay {
       this.gameBall.removeFromWorld()
       this.platforms.forEach( element => element.removeFromWorld())
       const levelCompleted = new LevelCompleted({time: this.timer.stopTime, platformsUsed: this.platforms.length, level: 1})
-      //window.alert(`OMG you won! It took you ${this.timer.stopTime} seconds to finish. It took you ${this.platforms.length} Platforms to win`)
       this.platforms = []
       this.platformCounter.remove()
       this.platformBtn.remove()

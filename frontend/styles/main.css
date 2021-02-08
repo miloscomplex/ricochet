@@ -120,7 +120,7 @@ li {
 }
 
 #infoBoxContainer .error {
-  margin-top: .5em;
+  margin-top: 1em;
   color: white;
   padding: .7em;
   background-color: #a31637;

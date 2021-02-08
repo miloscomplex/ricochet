@@ -69,6 +69,7 @@ class LevelCompleted {
           error.className = 'error'
           error.innerText = "uh oh, something went wrong"
           this.levelCompletedContainer.append(error)
+          setTimeout(() => error.remove(), 3000)
         }
       } else {
         res.json()
