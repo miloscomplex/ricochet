@@ -3,4 +3,5 @@ class ScoreSerializer < ActiveModel::Serializer
   def user
     { name: self.object.user.name,
       initials: self.object.user.initials }
+  end 
 end

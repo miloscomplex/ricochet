@@ -11,4 +11,4 @@ class Score < ApplicationRecord
     Score.order(:time_in_seconds, :platforms_used).limit(5)
   end
 
-endget
+end
