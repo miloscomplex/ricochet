@@ -103,3 +103,14 @@ canvas {
 .button:hover {
   background-color: #123;
 }
+
+.error {
+  margin-top: .5em;
+  color: white;
+  padding: .5em;
+  background-color: #a31637;
+  border-radius: 10px;
+  font-size: 1em;
+  border: 0;
+  font-weight: 500;
+}

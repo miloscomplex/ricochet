@@ -58,13 +58,16 @@ class LevelCompleted {
         platforms_used: this.scoreInfo.platformsUsed,
         level: this.scoreInfo.level
       }
-    }).catch(function(e) {
-      console.log(e);
-      const error = document.createElement('p')
-      error.className = 'error'
-      error.innerText = 'Uh oh, somehting went wrong'
-      this.levelCompletedContainer.append(error)
-    })
+    }).then(res => {
+      if (!res.ok) {
+        //eturn console.log("error" + res.text());
+        const error = document.createElement('p')
+        error.className = 'error'
+        error.innerText = "uh oh, something went wrong"
+        this.levelCompletedContainer.append(error)
+      }
+    }).then(api.parseJSON)
+
     event.target.remove()
 
   }

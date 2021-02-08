@@ -16,7 +16,7 @@ class ScoresController < ApplicationController
       if user.valid? && score.save
         render json: score
       else
-        render json: { error: "Couldn't create the score", status: 200 }
+        render json: { errors: user.errors }, status: 422
       end
     end
 

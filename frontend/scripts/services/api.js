@@ -59,28 +59,6 @@ class API {
     method: 'POST',
     headers: this.headers,
     body: JSON.stringify(body)
-  }).then(this.parseJSON).catch()
-
-
-
-
-
-
-
-
-
-
-
-  // fetch post new user
-
-  // fetch post new score + user
+  })
 
 }
-
-// fetch('http://localhost:3000/users', {
-//     method: 'POST',
-//         headers: {'Accepts': 'application/json', 'Content-Type': 'application/json'},
-//         body: JSON.stringify({name: "Chris", initials: "cjs"})
-// })
-// Promise {<pending>}__proto__: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: Response
-// .then(res => res.json())
