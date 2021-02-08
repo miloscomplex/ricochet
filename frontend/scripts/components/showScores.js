@@ -36,7 +36,6 @@ class ShowScores {
 
   startNewGameBtn = event => {
     event.preventDefault()
-    canvasWrapper.innerHTML = ''
     startGame()
   }
 

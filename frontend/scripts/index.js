@@ -1,10 +1,10 @@
 
 // GLOBAL VARIABLES
-const canvas = document.getElementById('myCanvas')
 const canvasWrapper = document.getElementById('canvasWrapper')
-const ctx = canvas.getContext('2d')
+const canvas = { width: 800, height: 500}
 const URL = 'http://localhost:'
 const api = new API()
+let ctx;
 
 // module aliases for Matter.js
 const Engine = Matter.Engine

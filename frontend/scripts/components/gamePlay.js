@@ -1,6 +1,11 @@
 class GamePlay {
 
     constructor() {
+      canvasWrapper.innerHTML = ''
+      // proportions are f*cked if you add it the traditional way
+      canvasWrapper.innerHTML = '<canvas id="myCanvas" width="800" height="500"> </canvas>'
+      this.canvas = document.getElementById('myCanvas')
+      ctx = this.canvas.getContext('2d')
       this.platforms = new Array()
       this.timer = new Timer()
       this.ui = new Ui()
@@ -12,9 +17,10 @@ class GamePlay {
       this.interval = setInterval( this.checkTimer, 1000)
 
       // lexical scoping needs the argument passed
-      canvas.addEventListener('click', event =>           this.makePlatform(event, this.platforms))
+      this.canvas.addEventListener('click', event => this.makePlatform (event, this.platforms))
       this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
-
+      // restart btn needs something similar to you won 
+      //this.restartBtn.addEventListener('click', event => startGame() )
       //Engine.run(this.engine)
       this.ballRadius = 6
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
@@ -28,7 +34,7 @@ class GamePlay {
     }
 
   drawCanvas = () => {
-    //ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     this.ui.updateTime(this.timer.elapsedTime())
     Engine.update(engine)
 
