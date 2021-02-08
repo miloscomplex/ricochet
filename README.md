@@ -15,7 +15,7 @@ To confirm you have the correct gem files.
 
 ## Usage
 
-In the terminal type:
+While still in the backend folder in the terminal type:
 ```
 rails s
 ```
