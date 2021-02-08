@@ -3,7 +3,7 @@ class GamePlay {
     constructor() {
       canvasWrapper.innerHTML = ''
       // proportions are f*cked if you add it the traditional way
-      canvasWrapper.innerHTML = '<canvas id="myCanvas" width="800" height="500"> </canvas>'
+      canvasWrapper.innerHTML = `<canvas id="myCanvas" width="${canvas.width}" height="${canvas.height}"> </canvas>`
       this.canvas = document.getElementById('myCanvas')
       ctx = this.canvas.getContext('2d')
       this.platforms = new Array()
@@ -19,7 +19,7 @@ class GamePlay {
       // lexical scoping needs the argument passed
       this.canvas.addEventListener('click', event => this.makePlatform (event, this.platforms))
       this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
-      // restart btn needs something similar to you won 
+      // restart btn needs something similar to you won
       //this.restartBtn.addEventListener('click', event => startGame() )
       //Engine.run(this.engine)
       this.ballRadius = 6
