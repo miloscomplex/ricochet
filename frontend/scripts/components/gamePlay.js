@@ -1,6 +1,7 @@
 class GamePlay {
 
     constructor() {
+      //canvasWrapper.innerHTML = '' 
       this.platforms = new Array()
       this.timer = new Timer()
       this.ui = new Ui()
@@ -8,7 +9,7 @@ class GamePlay {
       this.timerDiv = this.ui.attachTimer()
       this.platformCounter = this.ui.attachPlatfromCounter()
       this.platformBtn = this.ui.attachPlatformBtn()
-      this.restartBtn = this.ui.attachRestartGameBtn()
+      //this.restartBtn = this.ui.attachRestartGameBtn()
       this.interval = setInterval( this.checkTimer, 1000)
 
       // lexical scoping needs the argument passed

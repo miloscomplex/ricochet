@@ -9,7 +9,8 @@ class Score < ApplicationRecord
 
   def self.get_high_scores
     # highscores logic here
-    scores = { scores: "This should display highScores", status: 200 }
+    # scores = { scores: "This should display highScores", status: 200 }
+    Score.order(:time_in_seconds, :platforms_used).limit(5)
   end
 
 end

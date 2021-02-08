@@ -104,13 +104,13 @@ canvas {
   background-color: #123;
 }
 
-.error {
+#infoBoxContainer .error {
   margin-top: .5em;
   color: white;
-  padding: .5em;
+  padding: .7em;
   background-color: #a31637;
-  border-radius: 10px;
-  font-size: 1em;
+  border-radius: 5px;
+  font-size: .8em;
   border: 0;
   font-weight: 500;
 }
