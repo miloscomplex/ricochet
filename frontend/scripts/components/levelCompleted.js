@@ -63,14 +63,18 @@ class LevelCompleted {
     }).then(res => {
       if (!res.ok) {
         //eturn console.log("error" + res.text());
-        const error = document.createElement('p')
-        error.className = 'error'
-        error.innerText = "uh oh, something went wrong"
-        this.levelCompletedContainer.append(error)
+        let checker = document.querySelector('.error')
+        if (!checker) {
+          const error = document.createElement('p')
+          error.className = 'error'
+          error.innerText = "uh oh, something went wrong"
+          this.levelCompletedContainer.append(error)
+        }
+      } else {
+        res.json()
+        event.target.remove()
+        let showScores = new ShowScores()
       }
-    }).then(api.parseJSON)
-
-    event.target.remove()
-    let showScores = new ShowScores()
+    })
   }
 }

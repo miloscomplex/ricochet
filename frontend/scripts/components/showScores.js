@@ -13,7 +13,7 @@ class ShowScores {
 
   renderHighScores = highScoresObj => {
     const highScoreText = document.createElement('h3')
-    highScoreText.innerText = 'Here are the top 10 scores'
+    highScoreText.innerText = 'Here are the top 5 scores'
     this.showScoresContainer.append(highScoreText)
     const highScoreList = document.createElement('ul')
     highScoreList.className = 'highScoreList'
