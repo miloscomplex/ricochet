@@ -1,3 +1,6 @@
 class ScoreSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :level, :platforms_used, :time_in_seconds
+  attributes :level, :platforms_used, :time_in_seconds, :user
+  def user
+    { name: self.object.user.name,
+      initials: self.object.user.initials }
 end
