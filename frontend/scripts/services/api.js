@@ -43,7 +43,7 @@ class API {
   }
 
   getHighScores = () => {
-    return fetch(this.scoresURL + '/highscores')
+    return fetch(this.scoresURL + '/highscores').then(this.parseJSON)
   }
 
   // POST
