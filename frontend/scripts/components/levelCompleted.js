@@ -16,7 +16,7 @@ class LevelCompleted {
 
   successMessage = function() {
     const successMessage = document.createElement('p')
-    successMessage.innerText = `Excellent Job! You won in ${this.scoreInfo.time} seconds and while using ${this.scoreInfo.platformsUsed} platforms. Submit your score to see how you rank.`
+    successMessage.innerText = `Excellent Job! You won in ${this.scoreInfo.time} seconds and while using ${this.scoreInfo.platformsUsed} platforms. Submit your score to see if you rank in the top 10.`
     this.levelCompletedContainer.append(successMessage)
   }
 
@@ -39,10 +39,7 @@ class LevelCompleted {
     submitButton.value = 'Submit Your Score'
 
     nameForm.addEventListener('submit', this.scoreSubmitted )
-    // {
-    //   e.preventDefault()
-    //   console.log(event);
-    // })
+
     nameForm.append(nameLabel, this.nameInput, initialsLabel, this.initialsInput, submitButton)
   }
 
@@ -82,7 +79,6 @@ class LevelCompleted {
   }
 
   attachSeeScoresBtn = function() {
-    console.log("hey there");
     this.scoresBtn.className = 'button'
     this.scoresBtn.innerText = 'See High Scores'
     this.levelCompletedContainer.append(this.scoresBtn)

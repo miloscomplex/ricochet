@@ -2,7 +2,7 @@ class GamePlay {
 
     constructor() {
       canvasWrapper.innerHTML = ''
-      // proportions are f*cked if you add it the traditional way
+      //proportions are f*cked if you add it the traditional way
       canvasWrapper.innerHTML = `<canvas id="myCanvas" width="${canvas.width}" height="${canvas.height}"> </canvas>`
       this.canvas = document.getElementById('myCanvas')
       ctx = this.canvas.getContext('2d')

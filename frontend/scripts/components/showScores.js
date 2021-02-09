@@ -1,6 +1,6 @@
 class ShowScores {
   constructor() {
-    // need a clearing method
+    // need a clearing method?
     canvasWrapper.innerHTML = '' //may be overkill
 
     this.showScoresContainer = document.createElement('div')
@@ -8,7 +8,6 @@ class ShowScores {
     canvasWrapper.append(this.showScoresContainer)
     api.getHighScores().then(this.renderHighScores)
     this.newGameBtn = document.createElement('a')
-    //this.attachNewGameBtn()
   }
 
   renderHighScores = highScoresObj => {
@@ -31,7 +30,6 @@ class ShowScores {
     this.newGameBtn.innerText = 'Play Again?'
     this.newGameBtn.addEventListener('click', this.startNewGameBtn )
     this.showScoresContainer.append(this.newGameBtn)
-
   }
 
   startNewGameBtn = event => {

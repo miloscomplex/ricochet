@@ -21,14 +21,15 @@ world.gravity.y = .33
 let interval
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  startGame()
+  const instructions = new Instructions()
+  // startGame()
 })
 
 function stopInterval() {
   return clearInterval(interval)
 }
 
-setTimeout( stopInterval, 19000)
+//setTimeout( stopInterval, 19000)
 
 
 function startGame() {

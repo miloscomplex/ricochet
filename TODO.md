@@ -23,7 +23,7 @@
 - [x] The ball will leave the game area on the bottom if not platforms are placed to inhibit it’s departure
 - [x] The game is never lost it just continues to move the ball back to the starting point after leaving the game area
 
-## STRETCH GOALS
+### STRETCH GOALS
 - [ ] After score submission they are displayed what is their ranking
 - [x] Platforms are limited by a predetermined number
 - [x] Add only rules to routes.rb
@@ -31,9 +31,9 @@
 - [ ] on page load a how-to-play model displays and the game begins once the player clicks the ‘Play’ button
 - [ ] There are multiple levels
 - [ ] Once a level is won the user moves to the next level
-- [ ]The multiple levels have obstacles, for instance maybe vertical lines
+- [ ] The multiple levels have obstacles, for instance maybe vertical lines
 - [ ] Platforms can vary in size/dimensions
-- [ ]Platforms can be angled or selected from a library of platforms that have different angles
+- [ ] Platforms can be angled or selected from a library of platforms that have different angles
 - [ ] balls vary in size to increase difficulty of the level
 - [ ] goals post can obstruct from the top and bottom
 - [ ] goal posts move up and down
