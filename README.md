@@ -1,6 +1,10 @@
 ### RICOCHET
 
-Ricochet is a simple javascript game that implements physics. The game's object is to get the ball to cross through the goal post on the right side of the screen. You accomplish the goal by placing platforms for the ball to bounce off via mouse clicks at whatever x,y coordinates seem to save the ball from leaving the screen from the force of gravity. Ideally, you'll accomplish this by needing as little time as possible and using the least needed platforms. If you're able to get the ball to cross the goal post in a speedy time and with a low amount of platforms, you might even get into the top 5 list of high scores. The only way to see is by submitting your score to the database to see how you stack up.
+Ricochet is a simple javascript game that implements physics.
+
+The game's object is to get the ball to cross through the goal post on the right side of the screen before leaving the canvas on the bottom from gravitational forces. You accomplish this task by placing platforms, via mouse clicks, at the correct interval to bounce the ball across the screen and through the goal post.
+
+Ideally, you'll accomplish this by needing as little time as possible and using the least needed platforms. If you're able to get the ball to cross the goal post in a speedy time and with a low amount of platforms, you might even get into the top 5 list of high scores. The only way to see is by submitting your score to the database to see how you stack up.
 
 ## Installation
 

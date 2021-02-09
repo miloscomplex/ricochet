@@ -44,8 +44,6 @@ class GamePlay {
     this.gameBall.drawBall()
     if (this.gameBall.isOffScreen()) {
       this.gameBall.removeFromWorld()
-      //setTimeout(() => this.resetBall, 2000)
-      // creating crazy amount of objects
       this.resetBall()
     }
 
