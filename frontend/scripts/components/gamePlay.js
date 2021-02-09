@@ -4,6 +4,7 @@ class GamePlay {
       canvasWrapper.innerHTML = ''
       // proportions are f*cked if you add it the traditional way
       canvasWrapper.innerHTML = `<canvas id="myCanvas" width="${canvas.width}" height="${canvas.height}"> </canvas>`
+      
       this.canvas = document.getElementById('myCanvas')
       ctx = this.canvas.getContext('2d')
       this.platforms = new Array()
@@ -68,13 +69,6 @@ class GamePlay {
     this.gameBall = null
     this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
   }
-
-  // Why does this throw an error of not a function
-  // if reg function needs to be bound context of this
-  // draw = function(this) {
-  //   console.log('this= ' + this)
-  //   this.drawBall()
-  // }
 
   removePlatform = function(array) {
     if (array && array.length) {

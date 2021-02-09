@@ -1,21 +1,23 @@
 
 // GLOBAL VARIABLES
-const canvasWrapper = document.getElementById('canvasWrapper')
-const canvas = { width: 800, height: 500}
 const URL = 'http://localhost:'
 const api = new API()
-let ctx;
+
+const canvas = { width: 1000, height: 600}
+const canvasWrapper = document.getElementById('canvasWrapper')
+const wrapper = document.getElementById('wrapper').style.width = `${canvas.width}px`
+canvasWrapper.style.height = `${canvas.height}px`
+let ctx // make a global varible
 
 // module aliases for Matter.js
 const Engine = Matter.Engine
 const World = Matter.World
 const Bodies = Matter.Bodies
-// const Vertices = Matter.Vertices
-// const Svg = Matter.Svg
-
+// Matter.js
 const engine = Engine.create()
 const world = engine.world
 world.gravity.y = .33
+
 let interval
 
 window.addEventListener('DOMContentLoaded', (event) => {

@@ -7,9 +7,7 @@ class Ball {
     this.options = {
       restitution: 1.3,
       friction: 0,
-      //force: { x: 12, y: 3 },
-      // force is zeroed out after body.update
-      density: 4
+      density: 4,
     }
     this.body = Bodies.circle(x, y, radius, this.options)
     console.log(this.body)
@@ -18,6 +16,7 @@ class Ball {
 
   drawBall = function() {
     // force is only applied per reDraw
+    // then zeroed out after body.update
     this.body.force = { x: 0.05, y: -0.05 }
     let pos = this.body.position
 

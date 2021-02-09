@@ -49,13 +49,14 @@ li {
 
 
 #wrapper {
-  width: 800px;
+
+  /* width: 800px; */
   margin: 2.5em auto 0 auto;
 }
 
 #canvasWrapper {
   background-color: #000;
-  height: 500px;
+  /* height: 500px; */
   border-radius: .5em;
   padding: 0;
   position: relative;
