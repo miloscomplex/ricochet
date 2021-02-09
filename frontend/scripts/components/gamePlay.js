@@ -32,7 +32,6 @@ class GamePlay {
       this.canvasTop = new Rectangle(canvas.width / 2,  -40, canvas.width + 40, 80)
       this.canvasLeft = new Rectangle(-100, canvas.height / 2, 200, canvas.height + 20)
 
-      World.add(world,[this.canvasLeft, this.canvasTop])
     }
 
   drawCanvas = () => {
