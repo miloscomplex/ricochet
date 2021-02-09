@@ -25,7 +25,7 @@
 
 ## STRETCH GOALS
 - [ ] After score submission they are displayed what is their ranking
-- [ ] Platforms are limited by a predetermined number
+- [5] Platforms are limited by a predetermined number
 - [ ] Add only rules to routes.rb
 - [ ] Reset game button
 - [ ] On page load display instructions and a play game button

@@ -4,10 +4,11 @@ class GamePlay {
       canvasWrapper.innerHTML = ''
       // proportions are f*cked if you add it the traditional way
       canvasWrapper.innerHTML = `<canvas id="myCanvas" width="${canvas.width}" height="${canvas.height}"> </canvas>`
-      
       this.canvas = document.getElementById('myCanvas')
       ctx = this.canvas.getContext('2d')
+
       this.platforms = new Array()
+      this.platformLimit = 6
       this.timer = new Timer()
       this.ui = new Ui()
 
@@ -40,7 +41,7 @@ class GamePlay {
     Engine.update(engine)
 
     this.goalPost.drawRectangle()
-    this.ui.updatePlatformCount(this.platforms)
+    this.ui.updatePlatformCount(this.platforms, this.platformLimit)
     this.platforms.forEach( platform => platform.drawPlatform())
     this.gameBall.drawBall()
     if (this.gameBall.isOffScreen()) {
@@ -62,7 +63,9 @@ class GamePlay {
   }
 
    makePlatform = function(e, array) {
-    array.push(new Platform(e.offsetX, e.offsetY, 50, 15))
+     if (array.length < this.platformLimit) {
+       array.push(new Platform(e.offsetX, e.offsetY, 50, 15))
+     }
   }
 
   resetBall = () => {

@@ -37,9 +37,11 @@ class Ui {
     return this.platformCounter
   }
 
-  updatePlatformCount = function(array) {
+  updatePlatformCount = function(array, num) {
     if (array) {
-      this.platformCounter.innerText = `Platforms Used: ${array.length}`
+      this.platformCounter.innerText = `Platforms Used: ${array.length} of ${num}`
+      if (array.length === num) { this.platformCounter.style.color = '#ffb347'
+    } else { this.platformCounter.style.color = '#eeeeee'}
     }
   }
 
