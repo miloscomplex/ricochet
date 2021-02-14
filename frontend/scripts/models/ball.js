@@ -8,6 +8,7 @@ class Ball {
       restitution: 1.3,
       friction: 0,
       density: 4,
+
     }
     this.body = Bodies.circle(x, y, radius, this.options)
     console.log(this.body)
