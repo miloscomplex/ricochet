@@ -2,6 +2,7 @@ class GamePlay {
 
     constructor() {
       canvasWrapper.innerHTML = ''
+      // DOM reset
       //proportions are f*cked if you add it the traditional way
       canvasWrapper.innerHTML = `<canvas id="myCanvas" width="${canvas.width}" height="${canvas.height}"> </canvas>`
       this.canvas = document.getElementById('myCanvas')
@@ -15,14 +16,13 @@ class GamePlay {
       this.timerDiv = this.ui.attachTimer()
       this.platformCounter = this.ui.attachPlatfromCounter()
       this.platformBtn = this.ui.attachPlatformBtn()
-      //this.restartBtn = this.ui.attachRestartGameBtn()
+      this.restartBtn = this.ui.attachRestartGameBtn()
       this.interval = setInterval( this.checkTimer, 1000)
 
       // lexical scoping needs the argument passed
       this.canvas.addEventListener('click', event => this.makePlatform (event, this.platforms))
       this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
-      // restart btn needs something similar to you won
-      //this.restartBtn.addEventListener('click', event => startGame() )
+      this.restartBtn.addEventListener('click', event => this.restart() )
       //Engine.run(this.engine)
       this.ballRadius = 6
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
@@ -31,11 +31,15 @@ class GamePlay {
 
       this.canvasTop = new Rectangle(canvas.width / 2,  -40, canvas.width + 40, 80)
       this.canvasLeft = new Rectangle(-100, canvas.height / 2, 200, canvas.height + 20)
-
     }
 
   drawCanvas = () => {
-    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    ctx.beginPath()
+    ctx.rect(0, 0, this.canvas.width, this.canvas.height)
+    ctx.fillStyle = '#00000035'
+    ctx.fill()
+    ctx.closePath()
+    //ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     this.ui.updateTime(this.timer.elapsedTime())
     Engine.update(engine)
 
@@ -77,6 +81,18 @@ class GamePlay {
       let lastPlatform = array.pop()
       World.remove(world, lastPlatform.body)
     }
+  }
+
+  restart = () => {
+    stopInterval()
+    this.timer.timerRunning = false
+    this.gameBall.removeFromWorld()
+    this.platforms.forEach( element => element.removeFromWorld())
+    this.platforms = []
+    this.platformCounter.remove()
+    this.platformBtn.remove()
+    this.gameBall = null
+    startGame()
   }
 
 }

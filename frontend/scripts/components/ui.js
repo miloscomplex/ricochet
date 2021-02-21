@@ -11,7 +11,6 @@ class Ui {
 
   attachTimer = function() {
     this.timerDiv.className = 'timer'
-    //this.timerDiv.appendChild(timerText)
     this.canvasWrapper.append(this.timerDiv)
     this.timerRunning = true
     return this.timerDiv
