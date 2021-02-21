@@ -27,8 +27,8 @@
 - [ ] After score submission they are displayed what is their ranking
 - [x] Platforms are limited by a predetermined number
 - [x] Add only rules to routes.rb
-- [ ] Reset game button
-- [ ] on page load a how-to-play model displays and the game begins once the player clicks the ‘Play’ button
+- [x] Reset game button
+- [x] on page load a how-to-play model displays and the game begins once the player clicks the ‘Play’ button
 - [ ] There are multiple levels
 - [ ] Once a level is won the user moves to the next level
 - [ ] The multiple levels have obstacles, for instance maybe vertical lines
@@ -39,5 +39,5 @@
 - [ ] goal posts move up and down
 - [ ] Change the mouse pointer into the platforms when in the process of placing them
 - [ ] The User can give up and move to the next level
-- [ ] The User can remove individual platforms in sequence of placement and reposition them
+- [x] The User can remove individual platforms in sequence of placement and reposition them
 - [ ] Add sprite animation, e.g. squish on impact
