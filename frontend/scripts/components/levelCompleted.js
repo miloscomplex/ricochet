@@ -45,8 +45,8 @@ class LevelCompleted {
 
   scoreSubmitted = event => {
     event.preventDefault()
-    console.log(event)
-    console.log("nameInput= " + this.nameInput.value)
+    //console.log(event)
+    //console.log("nameInput= " + this.nameInput.value)
 
     api.postUserScore({
       user: {
@@ -61,7 +61,6 @@ class LevelCompleted {
     // refactor if have time
     }).then(res => {
       if (!res.ok) {
-        //eturn console.log("error" + res.text());
         let checker = document.querySelector('.error')
         if (!checker) {
           const error = document.createElement('p')
@@ -71,7 +70,7 @@ class LevelCompleted {
           setTimeout(() => error.remove(), 3000)
         }
       } else {
-        res.json()
+        console.log(res.json())
         this.showScores()
         event.target.remove()
       }

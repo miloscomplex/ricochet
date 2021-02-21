@@ -1,7 +1,7 @@
 class ShowScores {
   constructor() {
     // need a clearing method?
-    canvasWrapper.innerHTML = '' //may be overkill
+    canvasWrapper.innerHTML = ''
 
     this.showScoresContainer = document.createElement('div')
     this.showScoresContainer.id = 'infoBoxContainer'
@@ -11,6 +11,7 @@ class ShowScores {
   }
 
   renderHighScores = highScoresObj => {
+    console.log(highScoresObj)
     const highScoreText = document.createElement('h3')
     highScoreText.innerText = 'Here are the top 10 scores'
     this.showScoresContainer.append(highScoreText)
