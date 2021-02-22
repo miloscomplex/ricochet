@@ -132,3 +132,8 @@ li {
   border: 0;
   font-weight: 500;
 }
+
+.hi-light {
+  color: #0095DD;
+  text-align: center;
+}
