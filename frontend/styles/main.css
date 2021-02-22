@@ -19,6 +19,17 @@ h2 {
   font-size: 2em;
 }
 
+h3 {
+  font-size: 1.3em;
+  text-align: center;
+}
+
+h3 em {
+  color: #0095DD;
+  font-style: normal;
+  text-align: center;
+}
+
 input {
   background-color: #222;
   color: #eee;
@@ -131,9 +142,4 @@ li {
   font-size: .8em;
   border: 0;
   font-weight: 500;
-}
-
-.hi-light {
-  color: #0095DD;
-  text-align: center;
 }

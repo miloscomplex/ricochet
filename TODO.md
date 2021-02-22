@@ -24,7 +24,7 @@
 - [x] The game is never lost it just continues to move the ball back to the starting point after leaving the game area
 
 ### STRETCH GOALS
-- [ ] After score submission they are displayed what is their ranking
+- [x] After score submission they are displayed what is their ranking
 - [x] Platforms are limited by a predetermined number
 - [x] Add only rules to routes.rb
 - [x] Reset game button

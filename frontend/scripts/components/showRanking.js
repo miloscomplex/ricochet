@@ -12,15 +12,13 @@ class ShowRanking {
   }
 
   renderScores = scoresObj => {
-    //console.log(this.scoreEntryObj)
-    //console.log(scoresObj)
     const results = scoresObj.find( score => {
       return (score.level == this.scoreEntryObj.level && score.platforms_used == this.scoreEntryObj.platforms_used && score.time_in_seconds == this.scoreEntryObj.time_in_seconds && score.user.initials == this.scoreEntryObj.user.initials && score.user.name == this.scoreEntryObj.user.name)
     })
 
     console.log('results= ', results) // if obj you can't Concatenate !!!
     const rankText = document.createElement('h3')
-    //rankText.innerText = 'Here is your ranking'
+    rankText.innerText = 'Nice Job! '
     this.showRankContainer.append(rankText)
 
     const rankList = document.createElement('ul')
@@ -35,9 +33,7 @@ class ShowRanking {
     scoresObj.forEach( (score, i) => {
       if ( score === results ) {
           const yourRankContainer = document.createElement('span')
-          //yourRankContainer.classList.add('hi-light')
-          yourRankContainer.innerHTML = ` ${score.user.initials.toUpperCase()} you ranked ${i + 1 }. <br> It took you ${score.time_in_seconds} seconds and you used  ${score.platforms_used} platforms.`
-          rankText.classList.add('hi-light')
+          yourRankContainer.innerHTML = `<em>${score.user.initials.toUpperCase()}</em> you ranked <em>${i + 1 }</em>. <br> It took you <em>${score.time_in_seconds}</em> seconds and you used  <em>${score.platforms_used}</em> platforms.`
           rankText.append(yourRankContainer)
       }
       if ( i < this.scoreLimit ) {
