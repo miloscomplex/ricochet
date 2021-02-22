@@ -1,8 +1,7 @@
 class LevelCompleted {
   constructor(scoreInfo) {
     stopInterval()
-    // need a clearing method
-    canvasWrapper.innerHTML = '' //may be overkill
+    canvasWrapper.innerHTML = '' // DOM reset
     this.scoreInfo = scoreInfo
     this.levelCompletedContainer = document.createElement('div')
     this.levelCompletedContainer.id = 'infoBoxContainer'
@@ -70,8 +69,8 @@ class LevelCompleted {
           setTimeout(() => error.remove(), 3000)
         }
       } else {
-        console.log(res.json())
-        this.showScores()
+        // to get the array you need one more .then
+        res.json().then(data => this.showRanking(data))
         event.target.remove()
       }
     })
@@ -87,5 +86,9 @@ class LevelCompleted {
 
   showScores = function() {
     let showScores = new ShowScores()
+  }
+
+  showRanking = function(scoreEntryObj) {
+    let showRanking = new ShowRanking(scoreEntryObj)
   }
 }
