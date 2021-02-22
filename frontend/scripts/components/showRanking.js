@@ -33,7 +33,7 @@ class ShowRanking {
     scoresObj.forEach( (score, i) => {
       if ( score === results ) {
           const yourRankContainer = document.createElement('span')
-          yourRankContainer.innerHTML = `<em>${score.user.initials.toUpperCase()}</em> you ranked <em>${i + 1 }</em>. <br> It took you <em>${score.time_in_seconds}</em> seconds and you used  <em>${score.platforms_used}</em> platforms.`
+          yourRankContainer.innerHTML = `<em>${score.user.initials.toUpperCase()}</em> your rank is <em>${i + 1 }</em>. <br> It took you <em>${score.time_in_seconds}</em> seconds and you used  <em>${score.platforms_used}</em> platforms.`
           rankText.append(yourRankContainer)
       }
       if ( i < this.scoreLimit ) {

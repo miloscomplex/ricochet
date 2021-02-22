@@ -1,7 +1,7 @@
 class Ball {
   constructor(x,y,radius, vecX, vecY) {
     this.position = new Vector(x,y)
-    // velocity is readonle apply a force or change position instead
+    // velocity is readonly apply a force or change position instead
     this.radius = radius
     this.force = new Vector(vecX, vecY)
     this.options = {
@@ -11,7 +11,7 @@ class Ball {
 
     }
     this.body = Bodies.circle(x, y, radius, this.options)
-    console.log(this.body)
+    //console.log(this.body)
     World.add(world, this.body)
   }
 
