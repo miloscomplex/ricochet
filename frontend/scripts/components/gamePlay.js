@@ -17,12 +17,23 @@ class GamePlay {
       this.platformCounter = this.ui.attachPlatfromCounter()
       this.platformBtn = this.ui.attachPlatformBtn()
       this.restartBtn = this.ui.attachRestartGameBtn()
+
+      this.modeBtn = this.ui.attachModeBtn()
+
       this.interval = setInterval( this.checkTimer, 1000)
 
       // lexical scoping needs the argument passed
       this.canvas.addEventListener('click', event => this.makePlatform (event, this.platforms))
       this.platformBtn.addEventListener('click', event => this.removePlatform(this.platforms))
       this.restartBtn.addEventListener('click', event => this.restart() )
+
+      //this.darkMode = '#00000035'
+      this.mode = false
+      this.colorMode = '#00000035'
+      // this.toggle = this.toggleMode()
+
+
+      this.modeBtn.addEventListener('click', event => this.toggleMode() )
       //Engine.run(this.engine)
       this.ballRadius = 6
       this.gameBall = new Ball(10, 10, this.ballRadius, 10, 0.5)
@@ -36,7 +47,8 @@ class GamePlay {
   drawCanvas = () => {
     ctx.beginPath()
     ctx.rect(0, 0, this.canvas.width, this.canvas.height)
-    ctx.fillStyle = '#00000035'
+    ctx.fillStyle = this.colorMode
+    //console.log(this.mode);
     ctx.fill()
     ctx.closePath()
     //ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
@@ -93,6 +105,22 @@ class GamePlay {
     this.platformBtn.remove()
     this.gameBall = null
     startGame()
+  }
+
+  toggleMode = () => {
+    if (!this.mode) {
+      console.log('#FFFFFF35')
+      this.canvas.style.backgroundColor = '#FFFFFF35'
+      document.body.style.backgroundColor = '#555'
+      this.colorMode = '#FFFFFF35'
+
+    } else {
+     console.log('#00000035')
+     this.canvas.style.backgroundColor = '#00000035'
+     document.body.style.backgroundColor = '#333'
+     this.colorMode = '#00000035'
+    }
+    this.mode = !this.mode
   }
 
 }

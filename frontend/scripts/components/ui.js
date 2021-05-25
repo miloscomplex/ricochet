@@ -7,6 +7,7 @@ class Ui {
     this.platformBtn = document.createElement('a')
     this.platformCounter = document.createElement('div')
     this.restartGameBtn = document.createElement('a')
+    this.modeBtn = document.createElement('a')
   }
 
   attachTimer = function() {
@@ -49,5 +50,12 @@ class Ui {
     this.restartGameBtn.innerText = 'restart'
     this.canvasWrapper.append(this.restartGameBtn)
     return this.restartGameBtn
+  }
+
+  attachModeBtn = function() {
+    this.modeBtn.className = 'button'
+    this.modeBtn.innerText = 'change mode'
+    this.canvasWrapper.append(this.modeBtn)
+    return this.modeBtn
   }
 }

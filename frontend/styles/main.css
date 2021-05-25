@@ -9,6 +9,10 @@ body {
   color: #eee;
 }
 
+.light {
+  background-color: #ddd;
+}
+
 h1  {
   letter-spacing: 4px;
   margin: .2em;
@@ -46,6 +50,10 @@ input.button {
 canvas {
   background-color: #000;
   border-radius: .5em;
+}
+
+#myCanvas .light {
+  background-color: #FFF
 }
 
 ul  {
