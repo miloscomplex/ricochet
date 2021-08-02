@@ -1,6 +1,6 @@
 
 // GLOBAL VARIABLES
-const URL = 'http://localhost:'
+const URL = 'https://ricochet-backend.herokuapp.com:'
 const api = new API()
 
 const canvas = { width: 1200, height: 600}
