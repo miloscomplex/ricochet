@@ -2,7 +2,7 @@ class API {
 
   constructor(port = 3000) {
     this.port = port
-    this.url = URL + port
+    this.url = URL
   }
 
   // HELPERS //
