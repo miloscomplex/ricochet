@@ -24,7 +24,6 @@ class ShowRanking {
     const rankList = document.createElement('ul')
     rankList.className = 'rankList'
     this.showRankContainer.append(rankList)
-    console.log(scoresObj)
 
     scoresObj.sort((a,b)=> {
       return a.time_in_seconds - b.time_in_seconds || a.platformsUsed - b.platformsUsed
